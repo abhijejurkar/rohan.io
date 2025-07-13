@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohan Sanjay Thombare - Vision of Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, #1a2238 0%, #283655 100%);
+      color: #fff;
+      min-height: 100vh;
+      min-width: 100vw;
+      box-sizing: border-box;
+      text-align: center;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Animated blueprint grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(0,255,255,0.07) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,255,255,0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridMove 8s linear infinite;
+    }
+    @keyframes gridMove {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 40px 40px, 40px 40px; }
+    }
+
+    .container {
+      min-height: 100vh;
+      min-width: 100vw;
+      width: 100vw;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      position: relative;
+      z-index: 1;
+      padding: 0;
+      margin: 0;
+    }
+
+    .header-text {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2em;
+    }
+    .header-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 0.8s 0.3s forwards;
+    }
+    .header-text h2 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 0.8s 0.6s forwards;
+    }
+
+    .svg-figure {
+      position: relative;
+      z-index: 2;
+      width: 22vw;
+      max-width: 220px;
+      min-width: 120px;
+      height: auto;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .svg-figure svg {
+      width: 100%;
+      height: auto;
+      max-height: 36vh;
+      min-height: 120px;
+      display: block;
+    }
+    .svg-silhouette { opacity: 0; transform: translateY(80px); animation: riseUp 1.2s 0.8s forwards; }
+    .svg-live-shadow { opacity: 0; transform: scale(0.8); animation: shadowIn 1.2s 0.8s forwards; }
+    .svg-house-outline polyline { stroke-dasharray: 400; stroke-dashoffset: 400; opacity: 0.85; }
+    .svg-house-outline .house-anim-1 { animation: drawLine 0.7s 1.4s forwards; }
+    .svg-house-outline .house-anim-2 { animation: drawLine 0.5s 1.7s forwards; }
+    .svg-house-outline .house-anim-3 { animation: drawLine 0.4s 1.9s forwards; }
+    .svg-house-outline .house-anim-4 { animation: drawLine 0.4s 2.1s forwards; }
+    .svg-house-outline .house-anim-5 { animation: drawLine 0.3s 2.3s forwards; }
+    @keyframes drawLine { to { stroke-dashoffset: 0; } }
+    @keyframes riseUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes shadowIn { to { opacity: 1; transform: scale(1); } }
+
+    .tagline {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1rem;
+      margin: 0;
+      max-width: 95vw;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 0.8s 1.1s forwards;
+    }
+    @media (min-width: 600px) {
+      .header-text h1 { font-size: 2.8rem; }
+      .header-text h2 { font-size: 1.5rem; }
+      .tagline { font-size: 1.1rem; max-width: 600px; }
+      .svg-figure { max-width: 220px; }
+    }
+
+    .cta-button {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #ff6a3d;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 32px;
+      font-size: 1.08rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 2px 10px #ff6a3d33;
+      transition: box-shadow 0.2s, transform 0.15s, background 0.2s, color 0.2s;
+      opacity: 0;
+      transform: scale(0.96) translateY(30px);
+      animation: fadeScaleUp 0.7s 1.5s forwards;
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 0.01em;
+      outline: none;
+      min-width: 120px;
+      max-width: 90vw;
+      display: inline-block;
+      margin: 0 auto;
+      touch-action: manipulation;
+      will-change: transform, opacity;
+    }
+    .cta-button:hover, .cta-button:focus {
+      background: #d95a27;
+      color: #fff;
+      box-shadow: 0 4px 18px #ff6a3d55;
+      transform: scale(1.03);
+      z-index: 1;
+    }
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeScaleUp {
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    @media (max-width: 600px) {
+      .container {
+        min-height: 100vh;
+        min-width: 100vw;
+        gap: 0.7rem;
+        padding: 0 2vw;
+      }
+      .svg-figure {
+        width: 38vw;
+        min-width: 90px;
+        max-width: 120px;
+      }
+      .svg-figure svg {
+        max-height: 22vh;
+        min-height: 80px;
+      }
+      .header-text h1 { font-size: 1.1rem; }
+      .header-text h2 { font-size: 0.9rem; }
+      .tagline { font-size: 0.92rem; }
+      .cta-button {
+        font-size: 0.95rem;
+        padding: 12px 10px;
+        min-width: 44px;
+        min-height: 44px;
+      }
+    }
+
+    .profile-transition {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: #21e6c1;
+      display: none;
+      z-index: 100;
+      overflow: hidden;
+      transition: all 0.8s cubic-bezier(.4,2,.6,1);
+      box-shadow: 0 8px 32px #21e6c1aa, 0 0 0 8px #1a2238cc;
+      border: 4px solid #21e6c1;
+    }
+    .profile-transition.active {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .profile-transition.to-intro {
+      transition: all 0.8s cubic-bezier(.4,2,.6,1);
+      top: 50%;
+      left: 80vw;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .profile-transition.hide {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s;
+    }
+    .profile-transition img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 50%;
+    }
+    .profile-transition.show-image img {
+      opacity: 1;
+    }
+    .intro-text {
+      flex: 1 1 0;
+      max-width: 600px;
+      margin-left: 7vw;
+      color: #fff;
+      text-align: left;
+      z-index: 11;
+      pointer-events: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background: rgba(26,34,56,0.7);
+      border-radius: 18px;
+      padding: 2.5rem 2.5rem 2.5rem 2rem;
+      box-shadow: 0 4px 32px #1a223880;
+      backdrop-filter: blur(4px);
+      position: relative;
+    }
+    .intro-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0 0 18px 0;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .helmet {
+      display: inline-block;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 0.3em;
+      vertical-align: middle;
+      animation: waveHelmet 2s infinite;
+      transform-origin: 50% 90%;
+    }
+    @keyframes waveHelmet {
+      0%, 100% { transform: rotate(0deg); }
+      10% { transform: rotate(-12deg); }
+      20% { transform: rotate(8deg); }
+      30% { transform: rotate(-12deg); }
+      40% { transform: rotate(4deg); }
+      50% { transform: rotate(-6deg); }
+      60% { transform: rotate(0deg); }
+    }
+    .typewriter-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      min-height: 4.8em;
+      padding: 20px;
+    }
+    .typewriter-text {
+      font-size: 1.25rem;
+      color: #b0eaff;
+      margin: 0;
+      line-height: 1.7;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .cursor-container {
+      display: inline;
+      position: relative;
+      vertical-align: baseline;
+    }
+    .writing-tool {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      pointer-events: none;
+      z-index: 2;
+      left: -2px;
+      top: -12px;
+      transform-origin: 20% 80%;
+    }
+    @keyframes writingAngle {
+      0%, 100% { transform: rotate(-45deg) translateY(0); }
+      50% { transform: rotate(-43deg) translateY(-1px); }
+    }
+    .crane-hook {
+      position: absolute;
+      width: 1.5em;
+      height: 1.5em;
+      pointer-events: none;
+      z-index: 2;
+      transform-origin: center bottom;
+      margin-top: -0.1em;
+    }
+    .intro-photo {
+      flex: 0 0 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 3vw;
+      z-index: 12;
+    }
+    .intro-photo-inner {
+      width: 28vw;
+      max-width: 260px;
+      min-width: 80px;
+      height: 28vw;
+      max-height: 260px;
+      min-height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 8px 32px #21e6c1aa, 0 0 0 8px #1a2238cc;
+      border: 4px solid #21e6c1;
+      background: #223b5a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.3s, width 0.3s, height 0.3s;
+      will-change: transform, opacity;
+    }
+    .intro-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 1100px) {
+      .intro-text {
+        margin-left: 0;
+        margin-bottom: 2rem;
+        max-width: 90vw;
+        padding: 2rem 1.5rem;
+      }
+      .intro-photo {
+        margin-left: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      .intro-text h1 {
+        font-size: 2rem;
+      }
+      .typewriter-text {
+        font-size: 1rem;
+      }
+      .crane-hook {
+        width: 1.3em;
+        height: 1.3em;
+      }
+      .intro-photo-inner {
+        width: 38vw;
+        min-width: 54px;
+        height: 38vw;
+        min-height: 54px;
+      }
+    }
+    .highlight {
+      color: #ffb400;
+      font-weight: bold;
+      background: rgba(255,180,0,0.08);
+      border-radius: 0.25em;
+      padding: 0 0.15em;
+      transition: color 0.2s;
+    }
+    .cta-3d-btn {
+      margin-top: 2.2rem;
+      background: #ffb400;
+      color: #1a2238;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 38px;
+      box-shadow: 0 2px 10px #ffb40033;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+      letter-spacing: 0.01em;
+      outline: none;
+      z-index: 20;
+      position: relative;
+      display: none;
+    }
+    .cta-3d-btn.visible { display: inline-block; animation: fadeInVideo 0.7s cubic-bezier(.4,2,.6,1); }
+    .cta-3d-btn:hover, .cta-3d-btn:focus {
+      background: #ff6a3d;
+      color: #fff;
+      box-shadow: 0 4px 18px #ffb40055;
+      transform: scale(1.04);
+    }
+    .video-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(26,34,56,0.92);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s;
+      opacity: 0;
+    }
+    .video-overlay.active {
+      display: flex;
+      opacity: 1;
+      animation: fadeInVideo 0.7s cubic-bezier(.4,2,.6,1);
+    }
+    @keyframes fadeInVideo {
+      from { opacity: 0; transform: scale(0.92) translateY(40px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .video-modal {
+      background: rgba(34,46,68,0.98);
+      border-radius: 22px;
+      padding: 0.5rem;
+      box-shadow: 0 8px 32px #1a223880;
+      max-width: 96vw;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: relative;
+      animation: fadeInVideo 0.7s cubic-bezier(.4,2,.6,1);
+    }
+    .close-video {
+      background: none;
+      border: none;
+      color: #ffb400;
+      font-size: 2.2rem;
+      font-weight: bold;
+      position: absolute;
+      top: 0.2rem;
+      right: 1.2rem;
+      cursor: pointer;
+      z-index: 10;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+    .close-video:hover {
+      color: #ff6a3d;
+    }
+    .video-modal video {
+      width: 100%;
+      height: auto;
+      max-width: 80vw;
+      max-height: 70vh;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px #1a223880;
+      background: #000;
+      display: block;
+      outline: none;
+    }
+    @media (max-width: 700px) {
+      .video-modal { padding: 0.2rem; }
+      .video-modal video { border-radius: 10px; max-width: 98vw; max-height: 40vh; }
+    }
+    .video-curtain {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, #223b5a 80%, #1a2238 100%);
+      z-index: 3000;
+      align-items: flex-start;
+      justify-content: center;
+      overflow: hidden;
+      animation: none;
+      opacity: 1;
+      pointer-events: all;
+    }
+    .video-curtain.active {
+      display: flex;
+      animation: curtainDown 1.1s cubic-bezier(.4,2,.6,1) forwards;
+      opacity: 1;
+    }
+    .video-curtain.fading {
+      animation: curtainFadeOut 0.5s cubic-bezier(.4,2,.6,1) forwards;
+    }
+    @keyframes curtainDown {
+      0% { transform: translateY(-100%); opacity: 1; }
+      80% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes curtainFadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    .crane-hook-anim {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      z-index: 3100;
+      animation: hookDown 1.1s cubic-bezier(.4,2,.6,1) forwards;
+      pointer-events: none;
+      opacity: 1;
+    }
+    .crane-hook-anim.fading {
+      animation: hookFadeOut 0.5s cubic-bezier(.4,2,.6,1) forwards;
+    }
+    @keyframes hookDown {
+      0% { top: -120px; opacity: 1; }
+      80% { top: 60vh; opacity: 1; }
+      100% { top: 60vh; opacity: 1; }
+    }
+    @keyframes hookFadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    .video-modal.crane-drop {
+      animation: dropDown 0.7s cubic-bezier(.4,2,.6,1) forwards;
+    }
+    @keyframes dropDown {
+      0% { transform: translateY(-120px) scale(0.8); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-transition">
+    <img src="images/Rohan.jpeg" alt="Rohan's Profile">
+  </div>
+  <div class="container" id="splash-container">
+    <div class="header-text">
+      <h1>Hey, I'm Rohan Sanjay Thombare</h1>
+      <h2>Your Next Vision of Home</h2>
+    </div>
+    <div class="svg-figure">
+      <svg viewBox="0 0 220 360" width="220" height="360" style="display:block;">
+        <defs>
+          <filter id="shadow-blur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+            <feOffset in="blur" dx="0" dy="8" result="offsetBlur"/>
+            <feMerge>
+              <feMergeNode in="offsetBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <ellipse class="svg-live-shadow" cx="110" cy="340" rx="60" ry="16" fill="#00eaff" opacity="0.18" filter="url(#shadow-blur)"/>
+        <g class="svg-silhouette">
+          <path d="M60,320 Q110,250 160,320 Q170,340 110,350 Q50,340 60,320 Z" fill="#1a365d"/>
+          <ellipse cx="110" cy="180" rx="80" ry="120" fill="#223b5a"/>
+          <ellipse cx="110" cy="140" rx="45" ry="60" fill="#2c5364"/>
+          <ellipse cx="110" cy="110" rx="30" ry="35" fill="#223b5a"/>
+        </g>
+        <g class="svg-house-outline" fill="none" stroke="#00eaff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline class="house-anim-1" points="70,220 70,170 150,170 150,220 70,220"/>
+          <polyline class="house-anim-2" points="90,170 90,200 130,200 130,170"/>
+          <polyline class="house-anim-3" points="110,170 110,150 130,150 130,170"/>
+          <polyline class="house-anim-4" points="90,200 110,200 110,220"/>
+          <polyline class="house-anim-5" points="130,200 150,200"/>
+        </g>
+      </svg>
+    </div>
+    <div class="tagline">
+      Building digitally and physically,<br>
+      shaping futures one brick at a time
+    </div>
+    <a class="cta-button" id="start-construction" href="#">Build With Me</a>
+  </div>
+
+  <!-- Construction Animation Section (hidden initially) -->
+  <div class="container" id="construction-container" style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;">
+    <div class="construction-svg" style="width:220px;height:220px;display:flex;align-items:end;justify-content:center;">
+      <svg id="crane-building-svg" viewBox="0 0 220 220" width="220" height="220">
+        <!-- Ground/foundation -->
+        <rect id="ground" x="50" y="190" width="120" height="12" rx="6" fill="#b0b4be" opacity="0"/>
+        <!-- Building base (rises up in two stages) -->
+        <rect id="building-base-lower" x="60" y="180" width="100" height="0" rx="8" fill="#283655"/>
+        <rect id="building-base-upper" x="60" y="130" width="100" height="0" rx="8" fill="#283655"/>
+        <!-- Windows (appear one by one) -->
+        <g id="windows-group">
+          <rect class="window" x="80" y="140" width="16" height="16" fill="#fff" opacity="0"/>
+          <rect class="window" x="124" y="140" width="16" height="16" fill="#fff" opacity="0"/>
+          <rect class="window" x="80" y="160" width="16" height="16" fill="#fff" opacity="0"/>
+          <rect class="window" x="124" y="160" width="16" height="16" fill="#fff" opacity="0"/>
+        </g>
+        <!-- Roof block (dropped by crane, bounces) -->
+        <rect id="roof-block" x="100" y="40" width="20" height="20" fill="#21e6c1" rx="4"/>
+        <!-- Building outline -->
+        <rect id="building-outline" x="60" y="80" width="100" height="100" rx="8" fill="none" stroke="#ff6a3d" stroke-width="3"/>
+        <!-- Flag (appears at the end) -->
+        <g id="flag-group" opacity="0">
+          <rect x="120" y="60" width="2" height="18" fill="#ffb400"/>
+          <polygon points="122,60 132,66 122,72" fill="#ff6a3d"/>
+        </g>
+        <!-- Crane -->
+        <g id="crane-group">
+          <rect x="30" y="30" width="8" height="80" fill="#ffb400"/>
+          <rect x="20" y="30" width="28" height="8" fill="#ffb400"/>
+          <rect id="crane-arm" x="38" y="44" width="82" height="6" fill="#ffb400"/>
+          <!-- Crane cable -->
+          <rect id="crane-cable" x="120" y="50" width="3" height="30" fill="#ffb400"/>
+        </g>
+      </svg>
+    </div>
+    <div class="constructing-text" style="font-family:'Montserrat',Arial,sans-serif;font-size:1.1rem;color:#ff6a3d;">constructing...</div>
+    <div id="bulldozer-anim" style="width: 180px; height: 70px; margin-top: 10px; position: relative; overflow: visible;">
+      <svg id="bulldozer-svg" viewBox="0 0 180 70" width="180" height="70" style="position:absolute;left:0;top:0;">
+        <!-- Body -->
+        <rect x="30" y="30" width="70" height="28" rx="8" fill="#ffb400" stroke="#b07d00" stroke-width="2"/>
+        <!-- Cabin -->
+        <rect x="80" y="18" width="28" height="22" rx="5" fill="#21e6c1" stroke="#1a2238" stroke-width="2"/>
+        <!-- Blade -->
+        <rect x="8" y="38" width="28" height="12" rx="4" fill="#b0b4be" stroke="#283655" stroke-width="2"/>
+        <!-- Tracks -->
+        <rect x="32" y="58" width="66" height="8" rx="4" fill="#283655"/>
+        <!-- Wheels -->
+        <circle cx="40" cy="62" r="6" fill="#222" stroke="#b0b4be" stroke-width="2"/>
+        <circle cx="60" cy="62" r="6" fill="#222" stroke="#b0b4be" stroke-width="2"/>
+        <circle cx="80" cy="62" r="6" fill="#222" stroke="#b0b4be" stroke-width="2"/>
+        <circle cx="98" cy="62" r="6" fill="#222" stroke="#b0b4be" stroke-width="2"/>
+        <!-- Exhaust -->
+        <rect x="105" y="22" width="5" height="14" rx="2" fill="#b0b4be"/>
+        <rect x="106.5" y="16" width="2" height="8" rx="1" fill="#b0b4be"/>
+      </svg>
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Button click: fade out splash, show construction
+    document.getElementById('start-construction').onclick = function(e) {
+      e.preventDefault();
+      const splash = document.getElementById('splash-container');
+      splash.style.transition = 'opacity 0.7s cubic-bezier(.4,2,.6,1)';
+      splash.style.opacity = 0;
+      setTimeout(() => {
+        splash.style.display = 'none';
+        startConstruction();
+      }, 700);
+    };
+
+    // Add bulldozer animation logic
+    let bulldozerInterval;
+    function animateBulldozer() {
+      const bulldozer = document.getElementById('bulldozer-svg');
+      let pos = 0;
+      let dir = 1;
+      bulldozer.style.left = '0px';
+      bulldozerInterval = setInterval(() => {
+        pos += dir * 2.2;
+        if (pos > 100) dir = -1;
+        if (pos < 0) dir = 1;
+        bulldozer.style.left = pos + 'px';
+      }, 16);
+    }
+    function stopBulldozer() {
+      clearInterval(bulldozerInterval);
+      const bulldozer = document.getElementById('bulldozer-svg');
+      if (bulldozer) bulldozer.style.left = '0px';
+    }
+    // Start/stop bulldozer with construction
+    function startConstruction() {
+      const construction = document.getElementById('construction-container');
+      construction.style.display = 'flex';
+      animateBulldozer();
+      // Animate ground/foundation
+      const ground = document.getElementById('ground');
+      ground.animate([
+        { opacity: 0 }, { opacity: 1 }
+      ], { duration: 500, fill: 'forwards' });
+      setTimeout(() => {
+        // Animate crane arm moving horizontally
+        const craneArm = document.getElementById('crane-arm');
+        const craneCable = document.getElementById('crane-cable');
+        const roofBlock = document.getElementById('roof-block');
+        craneArm.animate([
+          { x: 38 }, { x: 98 }
+        ], { duration: 900, fill: 'forwards', easing: 'cubic-bezier(.4,2,.6,1)' });
+        craneCable.animate([
+          { x: 120 }, { x: 180 }
+        ], { duration: 900, fill: 'forwards', easing: 'cubic-bezier(.4,2,.6,1)' });
+        roofBlock.animate([
+          { x: 100 }, { x: 160 }
+        ], { duration: 900, fill: 'forwards', easing: 'cubic-bezier(.4,2,.6,1)' });
+        setTimeout(() => {
+          // Drop block (roof) with bounce
+          roofBlock.animate([
+            { y: 40 }, { y: 60 }, { y: 54 }, { y: 60 }
+          ], { duration: 900, fill: 'forwards', easing: 'cubic-bezier(.4,2,.6,1)' });
+          craneCable.animate([
+            { height: 30 }, { height: 50 }
+          ], { duration: 900, fill: 'forwards', easing: 'cubic-bezier(.4,2,.6,1)' });
+          setTimeout(() => {
+            // Building lower part rises up
+            const buildingBaseLower = document.getElementById('building-base-lower');
+            buildingBaseLower.animate([
+              { height: 0, y: 180 }, { height: 50, y: 130 }
+            ], { duration: 900, fill: 'forwards', easing: 'cubic-bezier(.4,2,.6,1)' });
+            setTimeout(() => {
+              // Building upper part rises up
+              const buildingBaseUpper = document.getElementById('building-base-upper');
+              buildingBaseUpper.animate([
+                { height: 0, y: 130 }, { height: 50, y: 80 }
+              ], { duration: 900, fill: 'forwards', easing: 'cubic-bezier(.4,2,.6,1)' });
+              setTimeout(() => {
+                // Windows appear one by one
+                const windows = document.querySelectorAll('.window');
+                windows.forEach((w, i) => {
+                  setTimeout(() => {
+                    w.animate([
+                      { opacity: 0 }, { opacity: 1 }
+                    ], { duration: 350, fill: 'forwards' });
+                  }, i * 250);
+                });
+                setTimeout(() => {
+                  // Flag appears
+                  const flag = document.getElementById('flag-group');
+                  flag.animate([
+                    { opacity: 0 }, { opacity: 1 }
+                  ], { duration: 600, fill: 'forwards' });
+                  setTimeout(() => {
+                    // Transition to journey.html after 1.2s
+                    construction.style.transition = 'opacity 0.7s cubic-bezier(.4,2,.6,1)';
+                    construction.style.opacity = 0;
+                    setTimeout(() => {
+                      construction.style.display = 'none';
+                      stopBulldozer();
+                      window.location.href = 'introduction.html';
+                    }, 700);
+                  }, 900);
+                }, 1200);
+              }, 900);
+            }, 900);
+          }, 900);
+        }, 900);
+      }, 500);
+    }
+  });
+  </script>
+</body>
+</html>

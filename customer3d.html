@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workplace 3D Portfolio - Rohan Sanjay Thombare</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, #1a2238 0%, #283655 100%);
+      color: #fff;
+      min-height: 100vh;
+      min-width: 100vw;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(0,255,255,0.07) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,255,255,0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridMove 8s linear infinite;
+    }
+    @keyframes gridMove {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 40px 40px, 40px 40px; }
+    }
+    .header {
+      width: 100vw;
+      padding: 2.2rem 0 1.2rem 0;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: headerDrop 1.1s cubic-bezier(.4,2,.6,1);
+    }
+    @keyframes headerDrop {
+      0% { opacity: 0; transform: translateY(-60px); }
+      80% { opacity: 1; transform: translateY(8px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .header-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffb400;
+      margin: 0 0 0.2em 0;
+      letter-spacing: -1px;
+    }
+    .header-sub {
+      font-size: 1.1rem;
+      color: #b0eaff;
+      margin: 0 0 1.5em 0;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeInSub 1.2s 0.7s forwards;
+    }
+    @keyframes fadeInSub {
+      to { opacity: 1; }
+    }
+    .back-btn {
+      position: fixed;
+      left: 2vw;
+      top: 2vw;
+      background: #ffb400;
+      color: #1a2238;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 10px #ffb40033;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+      z-index: 20001;
+      min-width: 44px;
+      min-height: 44px;
+      touch-action: manipulation;
+      outline: none;
+      will-change: transform, opacity;
+      opacity: 0.97;
+      pointer-events: auto;
+    }
+    .back-btn:hover, .back-btn:focus {
+      background: #ff6a3d;
+      color: #fff;
+      box-shadow: 0 4px 18px #ffb40055;
+      transform: scale(1.04);
+    }
+    .top-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1rem 1.2rem 1rem;
+      background: rgba(26,34,56,0.7);
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 4px 32px #1a223880;
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+    .profile-pic {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 24px #21e6c1aa, 0 0 0 4px #1a2238cc;
+      border: 4px solid #21e6c1;
+      background: #223b5a;
+      margin-bottom: 0.7em;
+    }
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .profile-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffb400;
+      margin-bottom: 0.2em;
+      text-align: center;
+    }
+    .profile-role {
+      font-size: 1.01rem;
+      color: #b0eaff;
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+    .profile-desc {
+      font-size: 0.98rem;
+      color: #fff;
+      opacity: 0.85;
+      text-align: center;
+      margin-bottom: 0.2em;
+    }
+    .gallery-section {
+      padding: 1.2rem 2vw 2rem 2vw;
+      max-width: 100vw;
+      background: linear-gradient(135deg, rgba(33,230,193,0.07) 0%, rgba(255,180,0,0.07) 100%);
+      border-radius: 32px 32px 0 0;
+      min-height: 60vh;
+      position: relative;
+    }
+    .gallery-title {
+      font-size: 1.3rem;
+      color: #ffb400;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.01em;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      display: block;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      margin: 0 auto;
+      max-width: 1100px;
+      justify-items: center;
+      padding: 0 5vw;
+    }
+    .gallery-card {
+      background: rgba(26,34,56,0.95);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px #21e6c133, 0 0 0 0 #ffb400;
+      border: 2.5px solid rgba(33,230,193,0.18);
+      padding: 0.7em 0.7em 1.2em 0.7em;
+      width: 100%;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: box-shadow 0.32s cubic-bezier(.4,2,.6,1), border-color 0.22s cubic-bezier(.4,2,.6,1), transform 0.22s cubic-bezier(.4,2,.6,1), background 0.22s;
+      will-change: transform, opacity, box-shadow;
+      animation: cardIn 0.7s cubic-bezier(.4,2,.6,1);
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2.2em;
+      cursor: pointer;
+      outline: none;
+    }
+    .gallery-card:active, .gallery-card:focus {
+      box-shadow: 0 8px 32px #ffb40055, 0 0 0 4px #21e6c1;
+      border-color: #ffb400;
+      background: rgba(33,230,193,0.12);
+      transform: scale(0.98);
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(40px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .gallery-card-img-wrap {
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 0.7em;
+      background: #223b5a;
+      box-shadow: 0 2px 10px #21e6c122;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+      background: #223b5a;
+      transition: filter 0.32s cubic-bezier(.4,2,.6,1), box-shadow 0.22s;
+    }
+    .gallery-card-caption {
+      color: #ffb400;
+      font-size: 1.13rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 0.7em;
+      margin-bottom: 0.2em;
+      text-shadow: 0 2px 8px #1a223880, 0 0 0 #fff;
+      background: none;
+      border-radius: 0;
+      display: block;
+    }
+    @media (max-width: 700px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        max-width: 100vw;
+        gap: 1rem;
+        padding: 0 0.5vw;
+      }
+      .gallery-card {
+        margin-bottom: 1.2em;
+        padding: 0.5em 0.5em 0.8em 0.5em;
+        max-width: 99vw;
+      }
+      .gallery-card img {
+        height: 120px;
+        min-height: 80px;
+        max-width: 100%;
+      }
+      .gallery-card-caption {
+        font-size: 1rem;
+        margin-top: 0.4em;
+        margin-bottom: 0.1em;
+      }
+      .swiper-modal-content {
+        width: 100vw !important;
+        min-width: unset !important;
+        padding: 0.2em 0em !important;
+        border-radius: 0;
+        max-width: 100vw;
+        max-height: 100vh;
+      }
+      .swiper {
+        min-height: 160px;
+        max-height: 70vh;
+        height: 48vh;
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+        width: 100vw;
+        max-width: 100vw;
+      }
+      .swiper-slide img {
+        max-height: 44vh;
+        min-height: 80px;
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 10px;
+      }
+      .swiper-modal-caption {
+        font-size: 0.98rem;
+        margin-bottom: 0.2em;
+        margin-top: 0.2em;
+      }
+      .swiper-modal-count {
+        font-size: 0.85rem;
+        margin-bottom: 0.2em;
+        margin-top: 0.1em;
+      }
+      .swiper-button-next, .swiper-button-prev {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+        top: unset;
+        bottom: 12px;
+        transform: none;
+        box-shadow: 0 1px 4px #21e6c1aa;
+      }
+      .swiper-button-prev {
+        left: 12px;
+        right: unset;
+      }
+      .swiper-button-next {
+        right: 12px;
+        left: unset;
+      }
+      .swiper-modal-close {
+        top: 8px;
+        right: 12px;
+        font-size: 1.5rem;
+        min-width: 44px;
+        min-height: 44px;
+      }
+    }
+    @media (min-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 700px;
+      }
+      .gallery-card img {
+        height: 200px;
+      }
+    }
+    @media (min-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 1100px;
+      }
+      .gallery-card img {
+        height: 220px;
+      }
+    }
+    /* Swiper Modal Styles */
+    .swiper-modal {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(20,30,40,0.93);
+      display: none; align-items: center; justify-content: center;
+      z-index: 3000;
+      transition: opacity 0.35s cubic-bezier(.4,2,.6,1);
+      backdrop-filter: blur(6px);
+    }
+    .swiper-modal[aria-hidden="false"] {
+      display: flex;
+      opacity: 1;
+    }
+    .swiper-modal-content {
+      background: #1a2238;
+      border-radius: 24px;
+      box-shadow: 0 8px 48px #21e6c1cc;
+      padding: 1.5em 1em;
+      min-width: 320px;
+      max-width: 98vw;
+      width: 600px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: zoomIn 0.5s cubic-bezier(.4,2,.6,1);
+      /* Responsive modal height */
+      max-height: 96vh;
+      min-height: 40vh;
+      overflow: hidden;
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .swiper-modal-close {
+      position: absolute; top: 18px; right: 24px;
+      color: #ffb400; background: none; border: none;
+      font-size: 2.2rem; cursor: pointer; z-index: 10; transition: color 0.2s;
+      text-shadow: 0 2px 12px #1a2238cc;
+    }
+    .swiper-modal-close:hover { color: #21e6c1; }
+    .swiper {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      max-height: 70vh;
+      border-radius: 18px;
+      background: #223b5a;
+      margin-top: 1.5em;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 32px #21e6c133;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Responsive Swiper height */
+      height: 60vh;
+      max-width: 98vw;
+      min-width: 0;
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 180px;
+    }
+    .swiper-slide img {
+      width: 100vw;
+      max-width: 100%;
+      height: 100%;
+      max-height: 58vh;
+      min-height: 120px;
+      object-fit: contain;
+      border-radius: 18px;
+      background: #223b5a;
+      box-shadow: 0 2px 10px #21e6c122;
+      display: block;
+      margin: 0 auto;
+    }
+    .swiper-pagination-bullet {
+      background: #ffb400;
+      opacity: 0.7;
+    }
+    .swiper-pagination-bullet-active {
+      background: #21e6c1;
+      opacity: 1;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: #ffb400;
+      background: rgba(33,230,193,0.12);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 2px 10px #21e6c1aa;
+      transition: background 0.2s, color 0.2s;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      background: #ffb400;
+      color: #fff;
+    }
+    .swiper-modal-caption {
+      color: #b0eaff;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 0.5em;
+      margin-top: 0.5em;
+      letter-spacing: 0.01em;
+    }
+    .swiper-modal-count {
+      color: #ffb400;
+      font-size: 0.98rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 0.5em;
+      margin-top: 0.2em;
+      letter-spacing: 0.01em;
+    }
+    .profile-photo-gallery {
+      position: fixed;
+      top: 32px;
+      right: 32px;
+      z-index: 2000;
+      transition: opacity 1.1s cubic-bezier(.4,2,.6,1), transform 1.1s cubic-bezier(.4,2,.6,1);
+      opacity: 0;
+      transform: scale(0.5);
+      pointer-events: none;
+    }
+    .profile-photo-gallery.visible {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+    .profile-photo-inner {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 24px #21e6c1aa, 0 0 0 4px #1a2238cc;
+      border: 3px solid #21e6c1;
+      background: #223b5a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .profile-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+    }
+    .profile-photo-name {
+      margin-top: 8px;
+      text-align: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #ffb400;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 8px #1a223880, 0 0 0 #fff;
+      opacity: 0;
+      transform: translateY(18px) scale(0.95);
+      transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+      pointer-events: none;
+      user-select: none;
+    }
+    .profile-photo-gallery.visible .profile-photo-name {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition-delay: 0.25s;
+    }
+    /* --- Blueprint SVG Accents --- */
+    .blueprint-accent {
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.18;
+      animation: accentFloat 8s ease-in-out infinite alternate;
+    }
+    .blueprint-accent.top-left { top: 0; left: 0; width: 180px; }
+    .blueprint-accent.bottom-right { bottom: 0; right: 0; width: 220px; animation-delay: 2s; }
+    @keyframes accentFloat {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(18px) scale(1.04); }
+    }
+    /* --- Lightbox Modal --- */
+    .lightbox {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(20,30,40,0.93);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 3000;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(.4,2,.6,1);
+    }
+    .lightbox.active { opacity: 1; pointer-events: auto; }
+    .lightbox-img {
+      max-width: 90vw; max-height: 80vh;
+      border-radius: 18px; box-shadow: 0 8px 48px #21e6c1cc;
+      animation: zoomIn 0.5s cubic-bezier(.4,2,.6,1);
+      background: #1a2238;
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .lightbox-close, .lightbox-nav {
+      position: absolute; top: 32px; color: #ffb400; background: none; border: none;
+      font-size: 2.2rem; cursor: pointer; z-index: 10; transition: color 0.2s;
+      text-shadow: 0 2px 12px #1a2238cc;
+    }
+    .lightbox-close { right: 48px; }
+    .lightbox-close:hover { color: #21e6c1; }
+    .lightbox-nav.left { left: 32px; top: 50%; transform: translateY(-50%); font-size: 2.5rem; }
+    .lightbox-nav.right { right: 32px; top: 50%; transform: translateY(-50%); font-size: 2.5rem; }
+    .lightbox-nav:hover { color: #21e6c1; }
+    @media (max-width: 700px) {
+      .lightbox-close, .lightbox-nav { font-size: 1.5rem; top: 12px; }
+      .lightbox-close { right: 16px; }
+      .lightbox-nav.left { left: 8px; }
+      .lightbox-nav.right { right: 8px; }
+    }
+    #profile-fly-anim-reverse {
+      position: fixed;
+      z-index: 100000;
+      pointer-events: none;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    #profile-fly-anim-reverse .profile-fly-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 8px 32px #21e6c1aa, 0 0 0 8px #1a2238cc;
+      border: 2px solid #21e6c1;
+      background: #223b5a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.7s cubic-bezier(.4,2,.6,1), opacity 0.4s cubic-bezier(.4,2,.6,1);
+      position: absolute;
+      left: auto; top: 32px; right: 32px;
+      transform: none;
+      opacity: 1;
+    }
+    #profile-fly-anim-reverse.fly-midway .profile-fly-img {
+      width: 120px;
+      height: 120px;
+      border-width: 3px;
+      left: 60vw;
+      top: 20vh;
+      right: auto;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      transition: all 0.7s cubic-bezier(.4,2,.6,1), opacity 0.4s cubic-bezier(.4,2,.6,1);
+    }
+    #profile-fly-anim-reverse.fly-center .profile-fly-img {
+      width: 260px;
+      height: 260px;
+      border-width: 4px;
+      left: 50%;
+      top: 50%;
+      right: auto;
+      transform: translate(-50%, -50%) scale(1.15);
+      opacity: 1;
+      transition: all 0.7s cubic-bezier(.4,2,.6,1), opacity 0.4s cubic-bezier(.4,2,.6,1);
+    }
+    #profile-fly-anim-reverse.fadeout .profile-fly-img {
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(.4,2,.6,1);
+    }
+    #page-transition-overlay-customer3d {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(120deg, #1a2238 60%, #21e6c1 100%);
+      z-index: 20000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.7s cubic-bezier(.4,2,.6,1);
+      will-change: opacity;
+    }
+    #page-transition-overlay-customer3d.active {
+      opacity: 1;
+      pointer-events: all;
+      transition: opacity 0.7s cubic-bezier(.4,2,.6,1);
+    }
+    @media (max-width: 700px) {
+      .back-btn {
+        top: 1vw;
+        left: 1vw;
+        padding: 8px 18px;
+        font-size: 0.98rem;
+        z-index: 20001;
+      }
+    }
+    /* Add style for new structure: caption always below image, overlay only on image */
+    .gallery-img-wrap {
+      position: relative;
+      width: 100%;
+      display: block;
+    }
+    .gallery-item .caption {
+      margin-top: 0.5em;
+      margin-bottom: 0.2em;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      display: block;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;">
+  <noscript><div style="color:red;text-align:center;font-size:1.2em;margin:2em;">JavaScript is required to view this site.</div></noscript>
+  <button class="back-btn" id="backToHomeBtn" aria-label="Back to Home">&larr; Home</button>
+  <div id="page-transition-overlay-customer3d"></div>
+  <div class="top-section">
+    <div class="profile-pic"><img src="images/Rohan.jpeg" alt="Rohan's Profile"></div>
+    <div class="profile-name">Er. Rohan Thombare</div>
+    <div class="profile-role">Interior Designer & 3D Visualizer</div>
+    <div class="profile-desc">A showcase of 3D workplace projects, walkthroughs, and visualizations.</div>
+  </div>
+  <section class="gallery-section">
+    <div class="gallery-title">Workplace 3D Projects</div>
+    <div class="gallery-grid" id="gallery-grid" tabindex="0" aria-label="Gallery of clients"></div>
+  </section>
+  <!-- Swiper Modal for Gallery Slideshow -->
+  <div class="swiper-modal" id="swiperModal" aria-hidden="true">
+    <div class="swiper-modal-content">
+      <button class="swiper-modal-close" id="swiperModalClose" title="Close" aria-label="Close Slideshow">&times;</button>
+      <div class="swiper-modal-caption" id="swiperModalCaption"></div>
+      <div class="swiper-modal-count" id="swiperModalCount"></div>
+      <div class="swiper" id="swiperGallery">
+        <div class="swiper-wrapper" id="swiperWrapper"></div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    // Disable right-click context menu
+    window.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    // Attempt to obfuscate source code for basic protection
+    (function() {
+      function randomString(len) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let str = '';
+        for (let i = 0; i < len; i++) str += chars.charAt(Math.floor(Math.random() * chars.length));
+        return str;
+      }
+      // Detect if user tries to open dev tools or view source
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'U') || (e.key === 'F12')) {
+          document.body.innerHTML = '<div style="color:red;text-align:center;font-size:2em;margin:2em;">Code viewing is disabled.</div><pre style="user-select:all;">' + randomString(2000) + '</pre>';
+          e.preventDefault();
+          return false;
+        }
+      });
+      // Extra: Overwrite body if user tries to select all (Ctrl+A) + copy (Ctrl+C)
+      document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'A') {
+          setTimeout(function() {
+            document.body.innerHTML = '<div style="color:red;text-align:center;font-size:2em;margin:2em;">Code viewing is disabled.</div><pre style="user-select:all;">' + randomString(2000) + '</pre>';
+          }, 10);
+        }
+      });
+    })();
+    // --- Dynamically build clients object from directory structure ---
+    // This is a placeholder for server-side or build-time generation.
+    // For now, we hardcode the discovered structure (update as needed):
+    const clients = {
+      "MR. KEADRE": ["images/3D/MR. KEADRE/55.jpg"],
+      "MR. POL": ["images/3D/MR. POL/97.jpg","images/3D/MR. POL/96_4 - Photo (4).jpg","images/3D/MR. POL/96_4 - Photo (3).jpg","images/3D/MR. POL/96_4 - Photo (2).jpg","images/3D/MR. POL/96_4 - Photo.jpg"],
+      "MR. BADAME": ["images/3D/MR. BADAME/A1_14 - Photo.png","images/3D/MR. BADAME/12_4 - Photo.png","images/3D/MR. BADAME/12_4 - Photo (2).png","images/3D/MR. BADAME/A1_4 - Photo.png","images/3D/MR. BADAME/A1_4 - Photo (2).png"],
+      "MR. SURYAVANSHI": ["images/3D/MR. SURYAVANSHI/32_4 - Photo.jpg","images/3D/MR. SURYAVANSHI/57.jpg","images/3D/MR. SURYAVANSHI/56_4 - Photo (2).jpg","images/3D/MR. SURYAVANSHI/56_4 - Photo.jpg"],
+      "MR. KALE": ["images/3D/MR. KALE/q3.png","images/3D/MR. KALE/q2.png"],
+      "MR. KUYATE": ["images/3D/MR. KUYATE/89_12 - Photo.jpg","images/3D/MR. KUYATE/89_14 - Photo.jpg"],
+      "MR. HIRE": ["images/3D/MR. HIRE/2q_4 - Photo (2).jpg","images/3D/MR. HIRE/2q_4 - Photo.jpg","images/3D/MR. HIRE/1_4 - Photo (2).jpg","images/3D/MR. HIRE/1_4 - Photo.jpg"],
+      "MR. WAGHCAHURE": ["images/3D/MR. WAGHCAHURE/x2.jpg","images/3D/MR. WAGHCAHURE/x1_4 - Photo (3).jpg","images/3D/MR. WAGHCAHURE/x1_4 - Photo (2).jpg","images/3D/MR. WAGHCAHURE/x1_4 - Photo.jpg"],
+      "MR. KUMAVAT": ["images/3D/MR. KUMAVAT/111.jpg","images/3D/MR. KUMAVAT/12_4 - Photo (5).jpg","images/3D/MR. KUMAVAT/12_4 - Photo (4).jpg","images/3D/MR. KUMAVAT/12_4 - Photo (3).jpg","images/3D/MR. KUMAVAT/12_4 - Photo (2).jpg","images/3D/MR. KUMAVAT/12_4 - Photo.jpg"],
+      "MR. TOPE 2": ["images/3D/MR. TOPE 2/a3_4 - Photo (2).jpg","images/3D/MR. TOPE 2/a3_4 - Photo.jpg","images/3D/MR. TOPE 2/a2_4 - Photo (2).jpg","images/3D/MR. TOPE 2/a2_4 - Photo.jpg","images/3D/MR. TOPE 2/a1_4 - Photo (2).jpg","images/3D/MR. TOPE 2/a1_4 - Photo.jpg"],
+      "MR. MAHGARE": ["images/3D/MR. MAHGARE/12_8 - Photo.jpg","images/3D/MR. MAHGARE/12_4 - Photo (3).jpg","images/3D/MR. MAHGARE/12_4 - Photo (2).jpg","images/3D/MR. MAHGARE/12_4 - Photo.jpg"],
+      "MR. KOKANE": ["images/3D/MR. KOKANE/97.jpg","images/3D/MR. KOKANE/96_4 - Photo (3).jpg","images/3D/MR. KOKANE/96_4 - Photo (2).jpg","images/3D/MR. KOKANE/96_4 - Photo.jpg"],
+      "MR. JAGTAP 1": ["images/3D/MR. JAGTAP 1/800_12 - Photo (2).jpg","images/3D/MR. JAGTAP 1/800_12 - Photo.jpg","images/3D/MR. JAGTAP 1/10_12 - Photo (2).jpg","images/3D/MR. JAGTAP 1/10_12 - Photo.jpg","images/3D/MR. JAGTAP 1/91_12 - Photo.jpg","images/3D/MR. JAGTAP 1/91_14 - Photo.jpg"],
+      "MR. BONATE": ["images/3D/MR. BONATE/32_4 - Photo (4).jpg","images/3D/MR. BONATE/32_4 - Photo (3).jpg","images/3D/MR. BONATE/32_4 - Photo (2).jpg","images/3D/MR. BONATE/32_4 - Photo.jpg"],
+      "MR. DESHMUKH": ["images/3D/MR. DESHMUKH/56_4 - Photo (4).jpg","images/3D/MR. DESHMUKH/56_4 - Photo (3).jpg","images/3D/MR. DESHMUKH/56_4 - Photo (2).jpg","images/3D/MR. DESHMUKH/56_4 - Photo.jpg"],
+      "MR. SHELAR": ["images/3D/MR. SHELAR/65.jpg","images/3D/MR. SHELAR/64.jpg","images/3D/MR. SHELAR/63_4 - Photo.jpg","images/3D/MR. SHELAR/63_14 - Photo (2).jpg","images/3D/MR. SHELAR/63_14 - Photo.jpg"],
+      "MR. RATAN": ["images/3D/MR. RATAN/a1_4 - Photo (5).jpg","images/3D/MR. RATAN/a1_4 - Photo (4).jpg","images/3D/MR. RATAN/a1_4 - Photo (3).jpg","images/3D/MR. RATAN/a1_4 - Photo (2).jpg","images/3D/MR. RATAN/a1_4 - Photo.jpg"],
+      "MR. ADAHV": ["images/3D/MR. ADAHV/s3_4 - Photo (2).jpg","images/3D/MR. ADAHV/s3_4 - Photo.jpg","images/3D/MR. ADAHV/s1_4 - Photo (3).jpg","images/3D/MR. ADAHV/s1_4 - Photo (2).jpg","images/3D/MR. ADAHV/s1_4 - Photo.jpg"],
+      "MR. NALE": ["images/3D/MR. NALE/97_4 - Photo (2).jpg","images/3D/MR. NALE/97_4 - Photo (3).jpg","images/3D/MR. NALE/97_4 - Photo.jpg","images/3D/MR. NALE/96_4 - Photo (4).jpg","images/3D/MR. NALE/96_4 - Photo (3).jpg","images/3D/MR. NALE/96_4 - Photo (2).jpg","images/3D/MR. NALE/96_4 - Photo.jpg"],
+      "MR. NAGARE": ["images/3D/MR. NAGARE/1_4 - Photo (4).jpg","images/3D/MR. NAGARE/1_4 - Photo (3).jpg","images/3D/MR. NAGARE/1_4 - Photo (2).jpg","images/3D/MR. NAGARE/1_4 - Photo.jpg"],
+      "MR. MAPARI": ["images/3D/MR. MAPARI/V1_4 - Photo (3).jpg","images/3D/MR. MAPARI/V1_4 - Photo.jpg","images/3D/MR. MAPARI/w2_4 - Photo (3).jpg","images/3D/MR. MAPARI/w2_4 - Photo (2).jpg"],
+      "MR. PATIL": ["images/3D/MR. PATIL/15.jpg","images/3D/MR. PATIL/14.jpg","images/3D/MR. PATIL/13_8 - Photo.jpg","images/3D/MR. PATIL/13_4 - Photo.jpg","images/3D/MR. PATIL/12.jpg"],
+      "MR. CHAVAN": ["images/3D/MR. CHAVAN/966_12 - Photo.jpg","images/3D/MR. CHAVAN/966_14 - Photo (3).jpg","images/3D/MR. CHAVAN/966_14 - Photo (2).jpg","images/3D/MR. CHAVAN/966_14 - Photo.jpg"],
+      "MR. JOHNDALE": ["images/3D/MR. JOHNDALE/S1_4 - Photo (4).jpg","images/3D/MR. JOHNDALE/S1_4 - Photo (3).jpg","images/3D/MR. JOHNDALE/S1_4 - Photo (2).jpg","images/3D/MR. JOHNDALE/S1_4 - Photo.jpg"],
+      "MR. KHANODE": ["images/3D/MR. KHANODE/9.jpg","images/3D/MR. KHANODE/8_12 - Photo.jpg","images/3D/MR. KHANODE/10.jpg","images/3D/MR. KHANODE/8_14 - Photo.jpg"],
+      "MR. KUTHE": ["images/3D/MR. KUTHE/k2.jpg","images/3D/MR. KUTHE/k1_4 - Photo (5).jpg","images/3D/MR. KUTHE/k1_4 - Photo (4).jpg","images/3D/MR. KUTHE/k1_4 - Photo (3).jpg","images/3D/MR. KUTHE/k1_4 - Photo (2).jpg","images/3D/MR. KUTHE/k1_4 - Photo.jpg"],
+      "MR. PEATARE": ["images/3D/MR. PEATARE/52_4 - Photo (2).jpg","images/3D/MR. PEATARE/52_4 - Photo.jpg","images/3D/MR. PEATARE/54_4 - Photo (4).jpg","images/3D/MR. PEATARE/54_4 - Photo (3).jpg","images/3D/MR. PEATARE/54_4 - Photo (2).jpg","images/3D/MR. PEATARE/54_4 - Photo.jpg"],
+      "MR. KHUASARE": ["images/3D/MR. KHUASARE/Z2.jpg","images/3D/MR. KHUASARE/Z1_4 - Photo (3).jpg","images/3D/MR. KHUASARE/Z1_4 - Photo (2).jpg","images/3D/MR. KHUASARE/Z1_4 - Photo.jpg","images/3D/MR. KHUASARE/a1_4 - Photo (2).jpg"],
+      "MR, THAKARE": ["images/3D/MR, THAKARE/57.jpg","images/3D/MR, THAKARE/56_4 - Photo (4).jpg","images/3D/MR, THAKARE/56_4 - Photo (3).jpg","images/3D/MR, THAKARE/56_4 - Photo (2).jpg","images/3D/MR, THAKARE/56_4 - Photo.jpg"],
+      "MR. WAGH": ["images/3D/MR. WAGH/85_4 - Photo (4).jpg","images/3D/MR. WAGH/85_4 - Photo (3).jpg","images/3D/MR. WAGH/85_4 - Photo (2).jpg"],
+      // ... continue for all other clients ...
+    };
+    // --- End dynamic data ---
+    const grid = document.getElementById('gallery-grid');
+    const swiperModal = document.getElementById('swiperModal');
+    const swiperModalClose = document.getElementById('swiperModalClose');
+    const swiperWrapper = document.getElementById('swiperWrapper');
+    const swiperModalCaption = document.getElementById('swiperModalCaption');
+    const swiperModalCount = document.getElementById('swiperModalCount');
+    let swiperInstance = null;
+    function showClientGrid() {
+      grid.innerHTML = '';
+      let i = 0;
+      let hasProjects = false;
+      for (const [client, images] of Object.entries(clients)) {
+        hasProjects = true;
+        // Use original image for grid
+        let cover = (images && images.length) ? images[0] : 'https://via.placeholder.com/400x200?text=No+Image';
+        const card = document.createElement('div');
+        card.className = 'gallery-card';
+        card.setAttribute('data-client', client);
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `View project: ${client}`);
+        card.style.animationDelay = (0.13 * i + 0.5) + 's';
+        card.innerHTML = `
+          <div class="gallery-card-img-wrap">
+            <img src="${cover}" alt="${client}" loading="lazy">
+          </div>
+          <div class="gallery-card-caption">${client}</div>
+        `;
+        grid.appendChild(card);
+        i++;
+      }
+      if (!hasProjects) {
+        grid.innerHTML = '<div style="color:#ffb400;font-size:1.2rem;text-align:center;padding:2em;">No projects found. Please check back later!</div>';
+      }
+    }
+    // Event delegation for card tap and keyboard
+    grid.addEventListener('click', function(e) {
+      let card = e.target.closest('.gallery-card');
+      if (!card) return;
+      const client = card.getAttribute('data-client');
+      if (!client || !clients[client]) {
+        console.error('No client data found for card:', card, client);
+        return;
+      }
+      openSwiperModal(client, 0);
+    });
+    grid.addEventListener('keydown', function(e) {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('gallery-card')) {
+        const client = e.target.getAttribute('data-client');
+        if (!client || !clients[client]) return;
+        openSwiperModal(client, 0);
+      }
+    });
+    function openSwiperModal(client, idx) {
+      try {
+        swiperWrapper.innerHTML = '';
+        const images = clients[client] || [];
+        swiperModalCaption.textContent = client;
+        swiperModalCount.textContent = images.length > 0 ? `Image ${idx+1} of ${images.length}` : '';
+        if (images.length === 0) {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+          slide.innerHTML = `<div style="width:100%;height:60vh;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#ffb400;background:#223b5a;border-radius:18px;">No images for this client.</div>`;
+          swiperWrapper.appendChild(slide);
+          showModalNow();
+        } else {
+          // Preload the first image before showing modal
+          const preloadImg = new Image();
+          preloadImg.src = images[idx];
+          let loaded = false;
+          // Show spinner overlay
+          swiperModal.setAttribute('aria-hidden', 'false');
+          swiperModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+          swiperWrapper.innerHTML = `<div class='swiper-slide'><div style='width:100%;height:60vh;display:flex;align-items:center;justify-content:center;'><div class='swiper-lazy-preloader'></div></div></div>`;
+          preloadImg.onload = function() {
+            loaded = true;
+            buildSlides();
+            showModalNow();
+          };
+          preloadImg.onerror = function() {
+            loaded = true;
+            swiperWrapper.innerHTML = `<div class='swiper-slide'><img src='https://via.placeholder.com/800x400?text=Image+Not+Found' alt='Image Not Found' style='width:100%;height:auto;max-height:70vh;object-fit:contain;border-radius:18px;background:#223b5a;'></div>`;
+            showModalNow();
+          };
+          // If image takes too long, fallback after 3s
+          setTimeout(() => { if (!loaded) { buildSlides(); showModalNow(); } }, 3000);
+          function buildSlides() {
+            swiperWrapper.innerHTML = '';
+            images.forEach((img, i) => {
+              const slide = document.createElement('div');
+              slide.className = 'swiper-slide';
+              slide.innerHTML = `<img class='swiper-lazy' src="${img}" data-src="${img}" alt="${client} ${i+1}" onerror="this.src='https://via.placeholder.com/800x400?text=Image+Not+Found'" style="width:100%;height:auto;max-height:70vh;object-fit:contain;border-radius:18px;background:#223b5a;"><div class='swiper-lazy-preloader'></div>`;
+              swiperWrapper.appendChild(slide);
+            });
+          }
+          function showModalNow() {
+            if (swiperInstance) swiperInstance.destroy(true, true);
+            swiperInstance = new Swiper('#swiperGallery', {
+              initialSlide: idx,
+              loop: false,
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+              keyboard: { enabled: true },
+              spaceBetween: 24,
+              centeredSlides: true,
+              slidesPerView: 1,
+              effect: 'fade',
+              fadeEffect: { crossFade: true },
+              speed: 600,
+              lazy: {
+                loadPrevNext: true,
+                loadOnTransitionStart: true
+              },
+              on: {
+                slideChange: function() {
+                  if (swiperInstance && swiperInstance.activeIndex !== undefined) {
+                    swiperModalCount.textContent = `Image ${swiperInstance.activeIndex+1} of ${images.length}`;
+                  }
+                }
+              }
+            });
+            setTimeout(() => { swiperModalClose.focus(); }, 200);
+          }
+        }
+      } catch (err) {
+        console.error('Error opening Swiper modal:', err);
+        alert('Failed to open slideshow. Please try again.');
+      }
+    }
+    function closeSwiperModal() {
+      swiperModal.setAttribute('aria-hidden', 'true');
+      swiperModal.style.display = 'none';
+      document.body.style.overflow = '';
+      if (swiperInstance) { swiperInstance.destroy(true, true); swiperInstance = null; }
+    }
+    if (swiperModalClose) swiperModalClose.onclick = closeSwiperModal;
+    document.addEventListener('keydown', e => {
+      if (swiperModal.getAttribute('aria-hidden') === 'false' && e.key === 'Escape') closeSwiperModal();
+    });
+    showClientGrid();
+    // Back to Home navigation with animated transition
+    const backToHomeBtn = document.getElementById('backToHomeBtn');
+    const pageTransitionOverlay = document.getElementById('page-transition-overlay-customer3d');
+    if (backToHomeBtn && pageTransitionOverlay) {
+      backToHomeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+        pageTransitionOverlay.classList.add('active');
+        setTimeout(() => {
+                window.location.href = 'introduction.html';
+        }, 700); // Match transition duration
+      });
+    }
+  </script>
+</body>
+</html> 

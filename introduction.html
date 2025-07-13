@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Added for mobile responsiveness -->
+  <title>Introduction - Rohan Sanjay Thombare</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      width: 100%;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, #1a2238 0%, #283655 100%);
+      color: #fff;
+      min-height: 100vh;
+      min-width: 100vw;
+      text-align: center;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    body::-webkit-scrollbar {
+      display: none; /* Chrome/Safari/Webkit */
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(0,255,255,0.07) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,255,255,0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridMove 8s linear infinite;
+    }
+    @keyframes gridMove {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 40px 40px, 40px 40px; }
+    }
+    .intro-section {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      background: none;
+      overflow-x: hidden;
+      padding-left: 0.5vw;
+      padding-right: 0.5vw;
+      box-sizing: border-box;
+    }
+    @media (max-width: 1100px) {
+      .intro-section {
+        width: 100vw;
+      }
+    }
+    .intro-text {
+      flex: 1 1 0;
+      max-width: 600px;
+      margin-left: 0;
+      color: #fff;
+      text-align: left;
+      z-index: 11;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background: rgba(26,34,56,0.7);
+      border-radius: 18px;
+      padding: 2rem 1.2rem 2rem 1.2rem;
+      box-shadow: 0 4px 32px #1a223880;
+      backdrop-filter: blur(4px);
+      position: relative;
+      box-sizing: border-box;
+    }
+    .highlight {
+      color: #ffb400;
+      font-weight: bold;
+      background: rgba(255,180,0,0.08);
+      border-radius: 0.25em;
+      padding: 0 0.15em;
+      transition: color 0.2s;
+    }
+    .typewriter-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      min-height: 4.8em;
+      padding: 20px;
+    }
+    .typewriter-text {
+      font-size: 1.25rem;
+      color: #b0eaff;
+      margin: 0;
+      line-height: 1.7;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .cursor-container {
+      display: inline;
+      position: relative;
+      vertical-align: baseline;
+    }
+    .writing-tool {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      pointer-events: none;
+      z-index: 2;
+      left: -2px;
+      top: -12px;
+      transform-origin: 20% 80%;
+    }
+    @keyframes writingAngle {
+      0%, 100% { transform: rotate(-45deg) translateY(0); }
+      50% { transform: rotate(-43deg) translateY(-1px); }
+    }
+    .intro-photo {
+      flex: 0 0 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 3vw;
+      z-index: 12;
+    }
+    .intro-photo-inner {
+      width: 28vw; /* Responsive width */
+      max-width: 260px;
+      min-width: 54px;
+      height: 28vw;
+      max-height: 260px;
+      min-height: 54px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 8px 32px #21e6c1aa, 0 0 0 8px #1a2238cc;
+      border: 4px solid #21e6c1;
+      background: #223b5a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.3s, width 0.3s, height 0.3s;
+      will-change: transform, opacity;
+    }
+    .intro-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 1100px) {
+      .intro-section {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 60px;
+      }
+      .intro-text {
+        margin-left: 0;
+        margin-bottom: 2rem;
+        max-width: 90vw;
+        padding: 2rem 1.5rem;
+      }
+      .intro-photo {
+        margin-left: 0;
+      }
+    }
+    @media (max-width: 700px) {
+      .intro-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 0.5rem;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        padding-bottom: 16px;
+        min-height: auto;
+        height: auto;
+        box-sizing: border-box;
+      }
+      .intro-photo {
+        order: -1;
+        margin-bottom: 1.2rem;
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .intro-photo-inner {
+        margin-bottom: 1.2rem;
+      }
+      .intro-text {
+        margin-left: 0;
+        margin-bottom: 2rem;
+        max-width: 100%;
+        padding: 2rem 1.2rem 2rem 1.2rem;
+        box-sizing: border-box;
+      }
+      .cta-3d-btn, .cta-customer3d-btn {
+        font-size: 1rem;
+        padding: 12px 18px;
+        width: 90vw;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .typewriter-text {
+        font-size: 1rem;
+      }
+      .cta-3d-btn, .cta-customer3d-btn {
+        font-size: 1rem;
+        padding: 12px 18px;
+        width: 90vw;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+      /* Move social icons to bottom */
+      .social-media-section {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
+        padding-bottom: 8px;
+        z-index: 1000;
+        background: none;
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+      .instagram-link, .whatsapp-link {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        gap: 8px;
+        border-radius: 30px;
+      }
+      .instagram-icon, .whatsapp-icon {
+        width: 20px;
+        height: 20px;
+      }
+      .instagram-icon svg, .whatsapp-icon svg {
+        width: 10px;
+        height: 10px;
+      }
+      .instagram-text, .whatsapp-text {
+        display: none;
+      }
+      /* Chatbot button and modal always bottom */
+      .floating-contact-btn {
+        right: 8px;
+        bottom: 64px; /* above social icons */
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        z-index: 1100;
+      }
+      .chatbot-contact-modal {
+        right: 0;
+        left: 0;
+        bottom: 64px; /* above social icons */
+        width: 100vw;
+        max-width: 100vw;
+        border-radius: 0;
+        z-index: 1101;
+      }
+      .chatbot-header {
+        font-size: 0.98rem;
+        padding: 0.7em 0.7em;
+      }
+      .curtain-rod {
+        height: 10px;
+      }
+      .curtain-fabric {
+        min-width: 50vw;
+      }
+      .crane-anim svg {
+        width: 60px;
+        height: 40px;
+      }
+    }
+    @media (max-width: 600px), (max-width: 480px) {
+      /* Force social icons to bottom and chatbot above them for all mobile widths */
+      .social-media-section {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 16px !important;
+        padding-bottom: 8px !important;
+        z-index: 1000 !important;
+        background: none !important;
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .floating-contact-btn {
+        right: 8px !important;
+        bottom: 64px !important;
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1.1rem !important;
+        z-index: 1100 !important;
+      }
+      .chatbot-contact-modal {
+        right: 0 !important;
+        left: 0 !important;
+        bottom: 64px !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        border-radius: 0 !important;
+        z-index: 1101 !important;
+      }
+    }
+    @media (max-width: 700px) {
+      .intro-photo-inner {
+        width: 64px;
+        height: 64px;
+        min-width: 44px;
+        min-height: 44px;
+        max-width: 64px;
+        max-height: 64px;
+        margin-bottom: 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .intro-photo {
+        margin-bottom: 0.2rem;
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .intro-section {
+        padding-top: 20px;
+      }
+      .chatbot-contact-modal {
+        max-width: 92vw !important;
+        width: 92vw !important;
+        left: 4vw !important;
+        right: 4vw !important;
+        border-radius: 12px !important;
+        padding: 0.1em 0.1em !important;
+        font-size: 0.93rem !important;
+        bottom: 80px !important;
+        margin-bottom: 8px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-shadow: 0 4px 24px #21e6c155 !important;
+      }
+      .chatbot-header {
+        font-size: 0.91rem !important;
+        padding: 0.4em 0.5em !important;
+      }
+      .chatbot-chat-area {
+        padding: 0.5em 0.5em 0.5em 0.5em !important;
+        min-height: 80px !important;
+        max-height: 120px !important;
+      }
+      .chatbot-input-area {
+        padding: 0.2em 0.5em 0.5em 0.5em !important;
+        gap: 0.2em !important;
+      }
+      .chatbot-input {
+        font-size: 0.91rem !important;
+        padding: 0.3em 0.5em !important;
+      }
+      .chatbot-send-btn {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.92rem !important;
+      }
+      .cta-3d-btn, .cta-customer3d-btn {
+        margin-top: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .intro-photo-inner {
+        width: 22vw;
+        min-width: 44px;
+        height: 22vw;
+        min-height: 44px;
+        max-width: 80px;
+        max-height: 80px;
+        margin-bottom: 0.7rem;
+      }
+      .chatbot-contact-modal {
+        max-width: 99vw;
+        width: 99vw;
+        left: 0.5vw;
+        right: 0.5vw;
+        border-radius: 10px;
+        padding: 0.1em 0.1em;
+        font-size: 0.95rem;
+        bottom: 60px;
+      }
+      .chatbot-header {
+        font-size: 0.92rem;
+        padding: 0.4em 0.5em;
+      }
+      .chatbot-chat-area {
+        padding: 0.5em 0.5em 0.5em 0.5em;
+        min-height: 80px;
+        max-height: 120px;
+      }
+      .chatbot-input-area {
+        padding: 0.3em 0.5em 0.5em 0.5em;
+        gap: 0.2em;
+      }
+      .chatbot-input {
+        font-size: 0.92rem;
+        padding: 0.4em 0.6em;
+      }
+      .chatbot-send-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.92rem;
+      }
+    }
+    .cta-3d-btn {
+      margin-top: 2.2rem;
+      background: #ffb400;
+      color: #1a2238;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 38px;
+      box-shadow: 0 2px 10px #ffb40033;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+      letter-spacing: 0.01em;
+      outline: none;
+      z-index: 20;
+      position: relative;
+      display: none;
+      max-width: 340px;
+    }
+    .cta-3d-btn.visible { display: inline-block; animation: fadeInVideo 0.7s cubic-bezier(.4,2,.6,1); }
+    .cta-3d-btn:hover, .cta-3d-btn:focus {
+      background: #ff6a3d;
+      color: #fff;
+      box-shadow: 0 4px 18px #ffb40055;
+      transform: scale(1.04);
+    }
+    @keyframes fadeInVideo {
+      from { opacity: 0; transform: scale(0.92) translateY(40px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .video-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(26,34,56,0.92);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s;
+      opacity: 0;
+    }
+    .video-overlay.active {
+      display: flex;
+      opacity: 1;
+      animation: fadeInVideo 0.7s cubic-bezier(.4,2,.6,1);
+    }
+    .video-modal {
+      background: rgba(34,46,68,0.98);
+      border-radius: 22px;
+      padding: 0.5rem;
+      box-shadow: 0 8px 32px #1a223880;
+      max-width: 96vw;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: relative;
+      animation: fadeInVideo 0.7s cubic-bezier(.4,2,.6,1);
+    }
+    .close-video {
+      background: none;
+      border: none;
+      color: #ffb400;
+      font-size: 2.2rem;
+      font-weight: bold;
+      position: absolute;
+      top: 0.2rem;
+      right: 1.2rem;
+      cursor: pointer;
+      z-index: 10;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+    .close-video:hover {
+      color: #ff6a3d;
+    }
+    .video-modal video {
+      width: 100%;
+      height: auto;
+      max-width: 80vw;
+      max-height: 70vh;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px #1a223880;
+      background: #000;
+      display: block;
+      outline: none;
+    }
+    @media (max-width: 700px) {
+      .video-modal { padding: 0.2rem; }
+      .video-modal video { border-radius: 10px; max-width: 98vw; max-height: 40vh; }
+    }
+    .shrink-fade {
+      transform: scale(0.7) translateY(-60px);
+      opacity: 0;
+      transition: all 1.2s cubic-bezier(.4,2,.6,1);
+      pointer-events: none;
+    }
+    .move-top-right {
+      position: fixed !important;
+      top: 32px;
+      right: 32px;
+      left: auto !important;
+      margin: 0 !important;
+      z-index: 1000;
+      transform: scale(0.5);
+      transition: all 1.2s cubic-bezier(.4,2,.6,1);
+      box-shadow: 0 4px 24px #21e6c1aa, 0 0 0 4px #1a2238cc;
+    }
+    @media (max-width: 700px) {
+      .move-top-right {
+        top: 10px;
+        right: 10px;
+        transform: scale(0.35);
+      }
+    }
+    /* Chatbot Styles - Added for Ask Riya functionality */
+    .floating-contact-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      background: linear-gradient(135deg, #21e6c1 60%, #ff6a3d 100%);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      box-shadow: 0 4px 24px #21e6c155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.18s;
+      animation: contactBtnPulse 2.2s infinite;
+    }
+    .floating-contact-btn.open { z-index: 10001; }
+    .floating-contact-btn:hover, .floating-contact-btn:focus {
+      box-shadow: 0 8px 32px #ff6a3d88;
+      transform: scale(1.08);
+      outline: none;
+    }
+    @keyframes contactBtnPulse {
+      0%, 100% { box-shadow: 0 4px 24px #21e6c155; }
+      50% { box-shadow: 0 8px 32px #ff6a3d88; }
+    }
+    .chatbot-contact-modal {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      position: fixed;
+      bottom: 86px;
+      right: 24px;
+      z-index: 10000;
+      background: #1a2238;
+      border-radius: 18px 18px 18px 6px;
+      box-shadow: 0 8px 32px #21e6c180;
+      width: 340px;
+      max-width: 98vw;
+      overflow: hidden;
+      font-family: 'Montserrat', Arial, sans-serif;
+      opacity: 0;
+      transform: scale(0.7) translateY(40px);
+      pointer-events: none;
+      transition: opacity 0.38s cubic-bezier(.4,2,.6,1), transform 0.38s cubic-bezier(.4,2,.6,1);
+      outline: none;
+    }
+    .chatbot-contact-modal.open {
+      display: flex;
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+      transition: opacity 0.38s cubic-bezier(.4,2,.6,1), transform 0.38s cubic-bezier(.4,2,.6,1);
+    }
+    .chatbot-contact-modal.closing {
+      opacity: 0;
+      transform: scale(0.7) translateY(40px);
+      pointer-events: none;
+      transition: opacity 0.38s cubic-bezier(.4,2,.6,1), transform 0.38s cubic-bezier(.4,2,.6,1);
+    }
+    .chatbot-contact-modal:focus {
+      outline: 2px solid #21e6c1;
+    }
+    .chatbot-header {
+      background: linear-gradient(90deg, #21e6c1 60%, #ff6a3d 100%);
+      color: #fff;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.8em 1.2em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #21e6c1;
+    }
+    .chatbot-header .close-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: 0.5em;
+      transition: color 0.2s;
+    }
+    .chatbot-header .close-btn:hover { color: #1a2238; }
+    .chatbot-chat-area {
+      background: none;
+      padding: 1.1em 1.2em 1em 1.2em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      min-height: 220px;
+      max-height: 320px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+    .chatbot-bubble {
+      max-width: 85%;
+      padding: 0.7em 1em;
+      border-radius: 18px 18px 18px 6px;
+      margin-bottom: 0.2em;
+      font-size: 1.01rem;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+      animation: bubbleIn 0.5s forwards;
+      box-shadow: 0 2px 10px #21e6c122;
+      word-break: break-word;
+    }
+    .chatbot-bubble.bot {
+      background: linear-gradient(90deg, #21e6c1 60%, #ff6a3d 100%);
+      color: #fff;
+      align-self: flex-start;
+      border-bottom-left-radius: 3px;
+      animation-delay: 0.1s;
+    }
+    .chatbot-bubble.user {
+      background: #283655;
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 3px;
+      animation: bubbleInUser 0.5s forwards;
+    }
+    @keyframes bubbleIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bubbleInUser {
+      from { opacity: 0; transform: translateY(20px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .chatbot-typing {
+      display: flex;
+      align-items: center;
+      gap: 0.2em;
+      margin: 0.2em 0 0.2em 0.1em;
+      min-height: 24px;
+      opacity: 0.7;
+    }
+    .chatbot-typing-dot {
+      width: 7px;
+      height: 7px;
+      background: #21e6c1;
+      border-radius: 50%;
+      display: inline-block;
+      animation: typingDot 1s infinite;
+    }
+    .chatbot-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .chatbot-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typingDot {
+      0%, 80%, 100% { opacity: 0.3; transform: scale(1); }
+      40% { opacity: 1; transform: scale(1.3); }
+    }
+    .chatbot-input-area {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.7em 1.2em 1em 1.2em;
+      background: none;
+      border-top: 1px solid #223b5a;
+    }
+    .chatbot-input {
+      flex: 1;
+      padding: 0.7em 1em;
+      border: none;
+      border-radius: 999px;
+      background: #223b5a;
+      color: #fff;
+      font-size: 1.01rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      outline: none;
+      box-shadow: 0 2px 10px #21e6c122;
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+    .chatbot-input:focus {
+      background: #283655;
+      box-shadow: 0 4px 18px #21e6c155;
+    }
+    .chatbot-send-btn {
+      background: #ff6a3d;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 2px 10px #ff6a3d33;
+    }
+    .chatbot-send-btn:hover, .chatbot-send-btn:focus {
+      background: #d95a27;
+      transform: scale(1.08);
+    }
+    @media (max-width: 600px) {
+      .floating-contact-btn { right: 8px; bottom: 8px; width: 40px; height: 40px; font-size: 1.1rem; }
+      .chatbot-contact-modal { right: 0; left: 0; bottom: 0; width: 100vw; max-width: 100vw; border-radius: 0; }
+      .chatbot-header { font-size: 0.98rem; padding: 0.7em 0.7em; }
+    }
+    /* Instagram Social Media Styles */
+    .social-media-section {
+      position: fixed;
+      top: 32px;
+      right: 32px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+      transform: translateX(20px);
+      animation: slideInSocial 1s ease-out 2.5s forwards;
+    }
+    @keyframes slideInSocial {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .instagram-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, rgba(26, 34, 56, 0.95) 0%, rgba(40, 54, 85, 0.95) 100%);
+      backdrop-filter: blur(12px);
+      border: 2px solid transparent;
+      border-radius: 60px;
+      padding: 14px 22px;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .instagram-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      transition: left 0.6s;
+    }
+    .instagram-link:hover::before {
+      left: 100%;
+    }
+    .instagram-link:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+      border-color: #21e6c1;
+      background: linear-gradient(135deg, rgba(26, 34, 56, 0.98) 0%, rgba(40, 54, 85, 0.98) 100%);
+    }
+    .instagram-icon {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(220, 39, 67, 0.3);
+      transition: all 0.3s ease;
+    }
+    .instagram-icon::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      background: #fff;
+      border-radius: 6px;
+      z-index: 1;
+    }
+    .instagram-icon svg {
+      position: relative;
+      z-index: 2;
+      width: 16px;
+      height: 16px;
+      color: #dc2743;
+    }
+    .instagram-link:hover .instagram-icon {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 6px 16px rgba(220, 39, 67, 0.5);
+    }
+    .instagram-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.3;
+    }
+    .instagram-label {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .instagram-username {
+      font-weight: 700;
+      color: #21e6c1;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .instagram-link:hover .instagram-username {
+      color: #ff6a3d;
+      text-shadow: 0 0 8px rgba(255, 106, 61, 0.3);
+    }
+    @media (max-width: 768px) {
+      .social-media-section {
+        top: 20px;
+        right: 20px;
+        gap: 8px;
+      }
+      .instagram-link {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+        gap: 12px;
+      }
+      .instagram-icon {
+        width: 24px;
+        height: 24px;
+      }
+      .instagram-icon svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    @media (max-width: 480px) {
+      .social-media-section {
+        top: 16px;
+        right: 16px;
+      }
+      .instagram-link {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        gap: 10px;
+      }
+      .instagram-text {
+        display: none;
+      }
+      .instagram-icon {
+        width: 22px;
+        height: 22px;
+      }
+      .instagram-icon svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+    /* WhatsApp Social Media Styles */
+    .whatsapp-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, rgba(26, 34, 56, 0.95) 0%, rgba(40, 54, 85, 0.95) 100%);
+      backdrop-filter: blur(12px);
+      border: 2px solid transparent;
+      border-radius: 60px;
+      padding: 14px 22px;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .whatsapp-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      transition: left 0.6s;
+    }
+    .whatsapp-link:hover::before {
+      left: 100%;
+    }
+    .whatsapp-link:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+      border-color: #25D366;
+      background: linear-gradient(135deg, rgba(26, 34, 56, 0.98) 0%, rgba(40, 54, 85, 0.98) 100%);
+    }
+    .whatsapp-icon {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s ease;
+    }
+    .whatsapp-icon::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      background: #fff;
+      border-radius: 6px;
+      z-index: 1;
+    }
+    .whatsapp-icon svg {
+      position: relative;
+      z-index: 2;
+      width: 16px;
+      height: 16px;
+      color: #25D366;
+    }
+    .whatsapp-link:hover .whatsapp-icon {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.3;
+    }
+    .whatsapp-label {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .whatsapp-username {
+      font-weight: 700;
+      color: #21e6c1;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .whatsapp-link:hover .whatsapp-username {
+      color: #25D366;
+      text-shadow: 0 0 8px rgba(37, 211, 102, 0.3);
+    }
+    @media (max-width: 768px) {
+      .whatsapp-link {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+        gap: 12px;
+      }
+      .whatsapp-icon {
+        width: 24px;
+        height: 24px;
+      }
+      .whatsapp-icon svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    @media (max-width: 480px) {
+      .whatsapp-link {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        gap: 10px;
+      }
+      .whatsapp-text {
+        display: none;
+      }
+      .whatsapp-icon {
+        width: 22px;
+        height: 22px;
+      }
+      .whatsapp-icon svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+    /* Curtain Animation */
+    .curtain {
+      position: fixed;
+      top: 0; bottom: 0;
+      width: 50vw;
+      z-index: 3100;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      pointer-events: none;
+      transition: transform 1.2s cubic-bezier(.77,0,.18,1);
+    }
+    .curtain-left {
+      left: 0;
+      border-top-right-radius: 60px;
+      border-bottom-right-radius: 60px;
+      transform: translateX(0);
+      flex-direction: row-reverse;
+    }
+    .curtain-right {
+      right: 0;
+      border-top-left-radius: 60px;
+      border-bottom-left-radius: 60px;
+      transform: translateX(0);
+      flex-direction: row;
+    }
+    .curtain.open.curtain-left { transform: translateX(-110%) skewY(-6deg); }
+    .curtain.open.curtain-right { transform: translateX(110%) skewY(6deg); }
+    .curtain-fabric {
+      width: 100%;
+      height: 100vh;
+      background: repeating-linear-gradient(120deg, #283655 0 8px, #1a2238 8px 24px, #283655 24px 32px);
+      background-blend-mode: multiply;
+      box-shadow: 0 0 32px #000a, 0 0 0 8px #1a2238cc;
+      border-radius: 0 0 60px 60px;
+      position: relative;
+      overflow: hidden;
+      animation: curtainWave 2.2s cubic-bezier(.77,0,.18,1) infinite alternate;
+      transition: box-shadow 0.5s;
+    }
+    @keyframes curtainWave {
+      0% { border-radius: 0 0 60px 60px / 0 0 60px 60px; }
+      50% { border-radius: 0 0 80px 80px / 0 0 100px 100px; }
+      100% { border-radius: 0 0 60px 60px / 0 0 60px 60px; }
+    }
+    .curtain-tie {
+      position: absolute;
+      top: 40vh;
+      left: 0; right: 0;
+      width: 32px;
+      height: 32px;
+      margin: 0 auto;
+      background: radial-gradient(circle at 60% 40%, #ffb400 60%, #ff6a3d 100%);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px #ffb40055;
+      z-index: 2;
+      opacity: 0.85;
+      border: 2px solid #fff3;
+      display: block;
+      transition: opacity 0.5s;
+    }
+    .curtain.open .curtain-tie { opacity: 0; }
+    /* Curtain Shadow on Video */
+    .curtain-shadow {
+      box-shadow: 0 0 80px 0 #000a, 0 0 0 8px #1a2238cc;
+      position: relative;
+      z-index: 2000;
+      transition: box-shadow 0.5s;
+    }
+    /* Crane Animation */
+    .crane-anim {
+      position: absolute;
+      left: 50%;
+      top: -60px;
+      transform: translateX(-50%);
+      z-index: 3100;
+      animation: craneDrop 1.2s cubic-bezier(.77,0,.18,1);
+      pointer-events: none;
+    }
+    @keyframes craneDrop {
+      0% { top: -120px; opacity: 0; }
+      60% { top: -40px; opacity: 1; }
+      100% { top: -60px; opacity: 1; }
+    }
+    .video-overlay:not(.active) .crane-anim {
+      display: none;
+    }
+    .cta-customer3d-btn {
+      margin-top: 1.2rem;
+      background: #21e6c1;
+      color: #1a2238;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 38px;
+      box-shadow: 0 2px 10px #21e6c133;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+      letter-spacing: 0.01em;
+      outline: none;
+      z-index: 20000;
+      position: relative;
+      display: none;
+      max-width: 340px;
+    }
+    .cta-customer3d-btn.visible {
+      display: inline-block;
+      animation: fadeInVideo 0.7s cubic-bezier(.4,2,.6,1);
+    }
+    #page-transition-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #1a2238;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 99999;
+      transition: opacity 0.7s cubic-bezier(.4,2,.6,1);
+    }
+    #page-transition-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    /* Profile Fly Animation */
+    #profile-fly-anim {
+      position: fixed;
+      z-index: 100000;
+      pointer-events: none;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    #profile-fly-anim .profile-fly-img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 8px 32px #21e6c1aa, 0 0 0 8px #1a2238cc;
+      border: 4px solid #21e6c1;
+      background: #223b5a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.7s cubic-bezier(.4,2,.6,1), opacity 0.4s cubic-bezier(.4,2,.6,1);
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    #profile-fly-anim.fly-center .profile-fly-img {
+      transform: translate(-50%, -50%) scale(1.15);
+      opacity: 1;
+    }
+    #profile-fly-anim.fly-midway .profile-fly-img {
+      width: 120px;
+      height: 120px;
+      border-width: 3px;
+      left: 60vw;
+      top: 20vh;
+      right: auto;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      transition: all 0.7s cubic-bezier(.4,2,.6,1), opacity 0.4s cubic-bezier(.4,2,.6,1);
+    }
+    #profile-fly-anim.fly-topright .profile-fly-img {
+      width: 80px;
+      height: 80px;
+      border-width: 2px;
+      left: auto; top: 32px; right: 32px;
+      transform: none;
+      opacity: 1;
+      transition: all 0.7s cubic-bezier(.4,2,.6,1), opacity 0.4s cubic-bezier(.4,2,.6,1);
+    }
+    #profile-fly-anim.fadeout .profile-fly-img {
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(.4,2,.6,1);
+    }
+    @media (max-width: 700px) {
+      #profile-fly-anim .profile-fly-img { width: 120px; height: 120px; }
+      #profile-fly-anim.fly-midway .profile-fly-img { width: 60px; height: 60px; left: 70vw; top: 18vh; }
+      #profile-fly-anim.fly-topright .profile-fly-img { width: 48px; height: 48px; right: 12px; top: 12px; }
+    }
+    .intro-section.shrink-fade {
+      transform: scale(0.7);
+      opacity: 0;
+      transition: all 0.7s cubic-bezier(.4,2,.6,1);
+      pointer-events: none;
+    }
+    .social-media-section, .floating-contact-btn, .chatbot-contact-modal {
+      transition: opacity 0.5s cubic-bezier(.4,2,.6,1), visibility 0.5s cubic-bezier(.4,2,.6,1);
+    }
+    .hide-on-transition {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      visibility: hidden !important;
+    }
+    @media (max-width: 700px) {
+      .social-media-section {
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 12px !important;
+        padding-bottom: 8px !important;
+        width: 100vw !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        position: fixed !important;
+        z-index: 1000 !important;
+        background: none !important;
+      }
+      .floating-contact-btn {
+        position: static !important;
+        margin: 0 !important;
+        right: unset !important;
+        bottom: unset !important;
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1.1rem !important;
+        z-index: 1100 !important;
+        box-shadow: none !important;
+      }
+      .social-media-section .floating-contact-btn {
+        order: 3;
+      }
+    }
+    .cta-btn-row {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .cta-3d-btn, .cta-customer3d-btn {
+      margin: 0;
+      width: 48%;
+      min-width: 120px;
+      flex: 1 1 0;
+      max-width: 260px;
+      white-space: normal;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .intro-section {
+        padding-left: 2vw;
+        padding-right: 2vw;
+        box-sizing: border-box;
+      }
+      .intro-text {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+        box-sizing: border-box;
+      }
+      .cta-btn-row {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        align-items: stretch;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .cta-3d-btn, .cta-customer3d-btn {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        margin: 0;
+      }
+    }
+    .video-btn-row {
+      display: inline-flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .video-modal {
+      width: 100%;
+      text-align: center;
+    }
+    @media (max-width: 500px) {
+      .video-btn-row {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .video-slider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: 100%;
+      margin: 0;
+      touch-action: pan-y;
+      max-width: 700px;
+    }
+    .video-slide {
+      flex: 1 1 600px;
+      max-width: 700px;
+      display: flex;
+      justify-content: center;
+      background: none;
+    }
+    .slider-arrow {
+      background: #ffb400;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      color: #1a2238;
+      cursor: pointer;
+      transition: background 0.2s;
+      opacity: 0.85;
+    }
+    .slider-arrow:hover {
+      background: #ff6a3d;
+      color: #fff;
+    }
+    .video-caption {
+      text-align: center;
+      color: #ffb400;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    @media (max-width: 700px) {
+      .video-slider { max-width: 98vw; }
+      .video-slide { max-width: 98vw; }
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;">
+  <noscript><div style="color:red;text-align:center;font-size:1.2em;margin:2em;">JavaScript is required to view this site.</div></noscript>
+  <div class="intro-section">
+    <div class="intro-text">
+      <h2 style="font-size:2rem;font-weight:bold;margin:0 0 18px 0;letter-spacing:-1px;">Hey there! I'm Rohan Sanjay Thombare,</h2>
+      <div class="typewriter-container">
+        <span class="typewriter-text" id="typewriter-text"></span>
+        <span class="cursor-container">
+          <span class="writing-tool" id="writing-tool">
+            <svg viewBox="0 0 100 100" width="100%" height="100%">
+              <path d="M25,75 L65,15 L85,25 L45,85 Z" fill="#ffb400"/>
+              <path d="M20,80 L25,75 L45,85 L40,90 Z" fill="#ff6a3d"/>
+              <path d="M65,15 L85,25 L90,20 L70,10 Z" fill="#21e6c1"/>
+              <path d="M35,70 L70,20" stroke="#ff6a3d" stroke-width="4" stroke-linecap="round"/>
+              <path d="M55,40 L75,30" stroke="#21e6c1" stroke-width="3" stroke-linecap="round"/>
+              <path d="M50,45 L70,35" stroke="#21e6c1" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div class="cta-btn-row">
+        <button id="show-3d-video" class="cta-3d-btn">See 3D Site View</button>
+        <button id="go-customer3d" class="cta-customer3d-btn">Explore My Workplace 3D Portfolio</button>
+      </div>
+    </div>
+    <div class="intro-photo" id="intro-photo">
+      <div class="intro-photo-inner">
+        <img src="images/Rohan.jpeg" alt="Rohan's Profile">
+      </div>
+    </div>
+  </div>
+  <!-- Instagram Social Media Link -->
+  <div class="social-media-section">
+    <a href="https://www.instagram.com/build_insite?igsh=aTlzYXFqOXpuZHlw" target="_blank" rel="noopener noreferrer" class="instagram-link" title="Follow me on Instagram">
+      <div class="instagram-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </div>
+      <div class="instagram-text">
+        <span class="instagram-label">Follow on</span>
+        <span class="instagram-username">@build_insite</span>
+      </div>
+    </a>
+    <a href="https://wa.me/919518953593?text=Hi%20Rohan!%20I%20visited%20your%20website%20and%20I'm%20interested%20in%20your%20interior%20design%20services.%20Can%20we%20discuss%20my%20project?%20🏠✨" target="_blank" rel="noopener noreferrer" class="whatsapp-link" title="Chat with Rohan on WhatsApp">
+      <div class="whatsapp-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+        </svg>
+      </div>
+      <div class="whatsapp-text">
+        <span class="whatsapp-label">Chat on</span>
+        <span class="whatsapp-username">WhatsApp</span>
+      </div>
+    </a>
+  </div>
+  <div id="video-overlay" class="video-overlay">
+    <!-- Curtain Rod -->
+    <div class="curtain-rod"></div>
+    <!-- Curtain Animation -->
+    <div class="curtain curtain-left"><div class="curtain-fabric"></div><div class="curtain-tie"></div></div>
+    <div class="curtain curtain-right"><div class="curtain-fabric"></div><div class="curtain-tie"></div></div>
+    <!-- Crane Animation -->
+    <div class="crane-anim">
+      <svg width="120" height="80" viewBox="0 0 120 80">
+        <rect x="10" y="60" width="8" height="20" fill="#888"/>
+        <rect x="14" y="10" width="2" height="50" fill="#888"/>
+        <rect x="14" y="10" width="60" height="4" fill="#888"/>
+        <rect x="74" y="10" width="2" height="30" fill="#888"/>
+        <rect x="73" y="40" width="4" height="8" fill="#ffb400"/>
+        <rect x="72" y="48" width="6" height="8" fill="#ffb400"/>
+        <rect x="75" y="56" width="2" height="10" fill="#ff6a3d"/>
+        <circle cx="76" cy="68" r="3" fill="#ff6a3d"/>
+      </svg>
+    </div>
+    <div class="video-modal curtain-shadow">
+      <button class="close-video" id="close-video">&times;</button>
+      <div class="video-slider" id="video-slider">
+        <button class="slider-arrow left" onclick="prevVideo()" aria-label="Previous Video">&#8592;</button>
+        <div class="video-slide" id="video-slide-1">
+          <video id="video-el-1" controls playsinline style="width:100%;border-radius:18px;box-shadow:0 8px 32px #1a223880;">
+            <source src="images/video/shreevishwahtfinal.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-slide" id="video-slide-2" style="display:none;">
+          <video id="video-el-2" controls playsinline style="width:100%;border-radius:18px;box-shadow:0 8px 32px #1a223880;">
+            <source src="images/video/NIGALsFINAL.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <button class="slider-arrow right" onclick="nextVideo()" aria-label="Next Video">&#8594;</button>
+      </div>
+    </div>
+  </div>
+  <div id="profile-fly-anim"></div>
+  <div id="page-transition-overlay"></div>
+  <script>
+    function startTypewriter() {
+      const text = "A creative mind with expertise in <b class='highlight'>interior design</b> and <b class='highlight'>civil engineering.</b>\nI love designing spaces that tell a story — combining structure, style, and soul.\nEach project is a journey, and I'm here to make every detail count.\n<b class='highlight'>Ready to see more? Click a button below to view my 3D projects and portfolio!</b>";
+      const typewriter = document.getElementById('typewriter-text');
+      const writingTool = document.getElementById('writing-tool');
+      const show3dBtn = document.getElementById('show-3d-video');
+      typewriter.innerHTML = '';
+      let i = 0;
+      let isTag = false;
+      let html = '';
+      function typeNext() {
+        if (i < text.length) {
+          const char = text[i];
+          html += char;
+          if (char === '<') isTag = true;
+          if (char === '>') isTag = false;
+          typewriter.innerHTML = html;
+          if (!isTag) {
+            writingTool.style.display = 'block';
+            writingTool.style.animation = 'writingAngle 0.15s ease-in-out infinite';
+            i++;
+            setTimeout(typeNext, 30);
+          } else {
+            i++;
+            typeNext();
+          }
+        } else {
+          writingTool.style.display = 'none';
+          if (show3dBtn) show3dBtn.classList.add('visible');
+          // Show the gallery button at the same time
+          var galleryBtn = document.getElementById('go-customer3d');
+          if (galleryBtn) galleryBtn.classList.add('visible');
+        }
+      }
+      writingTool.style.display = 'block';
+      typeNext();
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      startTypewriter();
+      // 3D Video CTA logic
+      const show3dBtn = document.getElementById('show-3d-video');
+      const videoOverlay = document.getElementById('video-overlay');
+      const closeVideo = document.getElementById('close-video');
+      const curtains = document.querySelectorAll('.curtain');
+      const crane = document.querySelector('.crane-anim');
+      const videoModal = document.querySelector('.video-modal');
+      const vid = document.getElementById('site-3d-video');
+
+      function openCurtain() {
+        curtains.forEach(c => c.classList.add('open'));
+      }
+      function closeCurtain() {
+        curtains.forEach(c => c.classList.remove('open'));
+      }
+
+      if (show3dBtn && videoOverlay && closeVideo) {
+        show3dBtn.onclick = function() {
+          videoOverlay.classList.add('active');
+          closeCurtain();
+          // Hide video and crane initially
+          videoModal.style.visibility = 'hidden';
+          if (crane) crane.style.visibility = 'hidden';
+          // Animate curtain open
+          setTimeout(() => {
+            openCurtain();
+            // Show crane after curtain starts opening
+            setTimeout(() => {
+              if (crane) crane.style.visibility = 'visible';
+              // Show video after curtain fully open and crane drops
+              setTimeout(() => {
+                videoModal.style.visibility = 'visible';
+                if (vid) { vid.currentTime = 0; vid.play(); }
+              }, 700);
+            }, 600);
+          }, 50);
+        };
+        closeVideo.onclick = function() {
+          // Hide video and crane before closing curtain
+          videoModal.style.visibility = 'hidden';
+          if (crane) crane.style.visibility = 'hidden';
+          closeCurtain();
+          setTimeout(() => {
+            videoOverlay.classList.remove('active');
+            if (vid) { vid.pause(); vid.currentTime = 0; }
+          }, 1200);
+        };
+      }
+    });
+    document.getElementById('go-customer3d').onclick = function() {
+      var overlay = document.getElementById('page-transition-overlay');
+      var intro = document.querySelector('.intro-section');
+      var profile = document.querySelector('.intro-photo-inner img');
+      var flyAnim = document.getElementById('profile-fly-anim');
+      // Hide chatbot, Instagram, WhatsApp
+      var social = document.querySelector('.social-media-section');
+      var chatbotBtn = document.querySelector('.floating-contact-btn');
+      var chatbotModal = document.querySelector('.chatbot-contact-modal');
+      if (social) social.classList.add('hide-on-transition');
+      if (chatbotBtn) chatbotBtn.classList.add('hide-on-transition');
+      if (chatbotModal) chatbotModal.classList.add('hide-on-transition');
+      // Clone profile photo for animation
+      var imgRect = profile.getBoundingClientRect();
+      flyAnim.innerHTML = '<div class="profile-fly-img"><img src="' + profile.src + '" alt="Rohan\'s Profile" style="width:100%;height:100%;object-fit:cover;" /></div>';
+      flyAnim.style.display = 'flex';
+      // Hide intro section with shrink/fade
+      intro.classList.add('shrink-fade');
+      // Animate profile to center
+      setTimeout(function() {
+        flyAnim.classList.add('fly-center');
+        // Animate profile to midway
+        setTimeout(function() {
+          flyAnim.classList.remove('fly-center');
+          flyAnim.classList.add('fly-midway');
+          // Fade out profile photo before navigating
+          setTimeout(function() {
+            flyAnim.classList.add('fadeout');
+            // Fade to black and navigate
+            setTimeout(function() {
+              overlay.classList.add('active');
+              document.body.style.pointerEvents = 'none';
+              setTimeout(function() {
+                window.location.href = 'customer3d.html';
+              }, 700);
+            }, 400);
+          }, 700);
+        }, 700);
+      }, 400);
+    };
+  </script>
+  <!-- Chatbot Elements - Added for Ask Riya functionality -->
+  <button class="floating-contact-btn" id="floatingContactBtn" title="Ask Riya" aria-label="Ask Riya">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#21e6c1" opacity="0.18"/><path d="M8 12v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2H10a2 2 0 00-2 2z" stroke="#fff" stroke-width="2"/><path d="M8 12l8 6 8-6" stroke="#ff6a3d" stroke-width="2"/></svg>
+  </button>
+  <div class="chatbot-contact-modal" id="chatbotContactModal" tabindex="0">
+    <div class="chatbot-header">
+      Ask Riya
+      <button class="close-btn" id="chatbotModalClose" title="Close">&times;</button>
+    </div>
+    <div class="chatbot-chat-area" id="chatbotChatArea" aria-live="polite"></div>
+    <form class="chatbot-input-area" id="chatbotInputForm" autocomplete="off" style="display:none;">
+      <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type here..." autocomplete="off" />
+      <button type="submit" class="chatbot-send-btn" title="Send">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12l18-7-7 18-2-8-8-3z" fill="#fff"/></svg>
+      </button>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS - Replace with your actual public key
+    (function() {
+      emailjs.init("gpolW7ZWHFOcbsAwo"); // Replace with your EmailJS public key (starts with 'user_')
+    })();
+
+    const contactBtn = document.getElementById('floatingContactBtn');
+    const chatbotModal = document.getElementById('chatbotContactModal');
+    const chatbotClose = document.getElementById('chatbotModalClose');
+    const chatArea = document.getElementById('chatbotChatArea');
+    const inputForm = document.getElementById('chatbotInputForm');
+    const inputBox = document.getElementById('chatbotInput');
+    let isOpen = false;
+    let chatStep = 0;
+    let userData = { name: '', mobile: '', message: '' };
+    let animating = false;
+
+    // Helper: Add chat bubble
+    function addBubble(text, sender = 'bot', delay = 0) {
+      setTimeout(() => {
+        const bubble = document.createElement('div');
+        bubble.className = 'chatbot-bubble ' + sender;
+        bubble.textContent = text;
+        chatArea.appendChild(bubble);
+        setTimeout(() => {
+          bubble.style.opacity = 1;
+          bubble.style.transform = 'translateY(0) scale(1)';
+          chatArea.scrollTop = chatArea.scrollHeight;
+        }, 10);
+        // Always scroll to latest
+        chatArea.scrollTo({ top: chatArea.scrollHeight, behavior: 'smooth' });
+        // Always focus input if visible
+        if (inputForm.style.display !== 'none') {
+          setTimeout(() => { inputBox.focus(); }, 100);
+        }
+      }, delay);
+    }
+    // Helper: Typing indicator
+    function showTyping(delay = 600) {
+      return new Promise(resolve => {
+        const typing = document.createElement('div');
+        typing.className = 'chatbot-typing';
+        typing.innerHTML = '<span class="chatbot-typing-dot"></span><span class="chatbot-typing-dot"></span><span class="chatbot-typing-dot"></span>';
+        chatArea.appendChild(typing);
+        chatArea.scrollTop = chatArea.scrollHeight;
+        setTimeout(() => {
+          typing.remove();
+          resolve();
+        }, delay);
+      });
+    }
+    // Proactively load voices on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      if ('speechSynthesis' in window) {
+        // Load voices immediately
+        window.speechSynthesis.getVoices();
+        
+        // Listen for voices to be loaded
+        window.speechSynthesis.addEventListener('voiceschanged', function() {
+          console.log('Voices loaded:', window.speechSynthesis.getVoices().length);
+        });
+        
+        // Try to speak a dummy utterance to initialize
+        setTimeout(() => {
+          try {
+            var dummy = new window.SpeechSynthesisUtterance('');
+            dummy.volume = 0;
+            window.speechSynthesis.speak(dummy);
+          } catch (e) {
+            console.log('Speech synthesis initialization:', e);
+          }
+        }, 100);
+      }
+    });
+    // Chatbot flow
+    async function startChat() {
+      chatArea.innerHTML = '';
+      chatStep = 0;
+      userData = { name: '', mobile: '', message: '' };
+      inputForm.style.display = 'none';
+      chatbotModal.focus();
+      // Always use the same welcome message
+      const greetingText = "Good evening, I am Riya, Rohan's assistant. Welcome to Vision of Home! 👋";
+      addBubble(greetingText, 'bot', 100);
+      // Speak the greeting and wait for it to finish
+      await speakBotAsync(greetingText);
+      await showTyping(900);
+      addBubble('May I know your name?', 'bot', 100);
+      speakBot('May I know your name?');
+      chatStep = 1;
+      inputForm.style.display = 'flex';
+      inputBox.type = 'text';
+      inputBox.value = '';
+      inputBox.placeholder = 'Your name...';
+      setTimeout(() => { inputBox.focus(); }, 200);
+    }
+    async function handleUserInput(input) {
+      if (chatStep === 1) {
+        userData.name = input;
+        addBubble(input, 'user', 100);
+        inputForm.style.display = 'none';
+        await showTyping(800);
+        addBubble(`Nice to meet you, ${userData.name}! Can I have your mobile number?`, 'bot', 100);
+        speakBot(`Nice to meet you, ${userData.name}! Can I have your mobile number?`);
+        chatStep = 2;
+        inputForm.style.display = 'flex';
+        inputBox.type = 'tel';
+        inputBox.value = '';
+        inputBox.placeholder = 'Your mobile number...';
+        setTimeout(() => { inputBox.focus(); }, 200);
+      } else if (chatStep === 2) {
+        if (!/^\d{10,15}$/.test(input.replace(/\D/g, ''))) {
+          addBubble('Please enter a valid mobile number (10-15 digits).', 'bot', 100);
+          speakBot('Please enter a valid mobile number.');
+          setTimeout(() => { inputBox.focus(); }, 200);
+          return;
+        }
+        userData.mobile = input.replace(/\D/g, '');
+        addBubble(userData.mobile, 'user', 100);
+        inputForm.style.display = 'none';
+        await showTyping(800);
+        addBubble('What would you like to share with us today?', 'bot', 100);
+        speakBot('What would you like to share with us today?');
+        chatStep = 3;
+        inputForm.style.display = 'flex';
+        inputBox.type = 'text';
+        inputBox.value = '';
+        inputBox.placeholder = 'Your message...';
+        setTimeout(() => { inputBox.focus(); }, 200);
+      } else if (chatStep === 3) {
+        userData.message = input;
+        addBubble(userData.message, 'user', 100);
+        inputForm.style.display = 'none';
+        await showTyping(900);
+        addBubble('Sending your message...', 'bot', 100);
+        speakBot('Sending your message...');
+        
+        // Send email
+        try {
+          const response = await sendEmail(userData);
+          if (response.success) {
+            addBubble('Perfect! Your message has been sent successfully. We\'ll contact you soon. Have a wonderful day! 🌸', 'bot', 100);
+            speakBot('Perfect! Your message has been sent successfully. We\'ll contact you soon. Have a wonderful day!');
+          } else {
+            addBubble('Sorry, there was an issue sending your message. Please try again or contact us directly.', 'bot', 100);
+            speakBot('Sorry, there was an issue sending your message. Please try again.');
+          }
+        } catch (error) {
+          console.error('Email error:', error);
+          addBubble('Sorry, there was an issue sending your message. Please try again or contact us directly.', 'bot', 100);
+          speakBot('Sorry, there was an issue sending your message. Please try again.');
+        }
+        
+        chatStep = 4;
+        setTimeout(() => {
+          chatbotModal.classList.remove('open');
+          chatbotModal.classList.add('closing');
+          contactBtn.classList.remove('open');
+          isOpen = false;
+          setTimeout(() => {
+            chatbotModal.classList.remove('closing');
+            chatbotModal.style.display = 'none';
+          }, 400);
+        }, 4000);
+      }
+    }
+    // Open/close logic
+    contactBtn.addEventListener('click', () => {
+      if (animating) return;
+      animating = true;
+      isOpen = !isOpen;
+      if (isOpen) {
+        chatbotModal.classList.remove('closing');
+        chatbotModal.style.display = 'flex';
+        setTimeout(() => {
+          chatbotModal.classList.add('open');
+          contactBtn.classList.add('open');
+          document.body.style.overflowX = 'hidden';
+          setTimeout(startChat, 200);
+          setTimeout(() => { animating = false; }, 400);
+        }, 10);
+      } else {
+        chatbotModal.classList.remove('open');
+        chatbotModal.classList.add('closing');
+        contactBtn.classList.remove('open');
+        document.body.style.overflowX = '';
+        setTimeout(() => {
+          chatbotModal.classList.remove('closing');
+          chatbotModal.style.display = 'none';
+          animating = false;
+        }, 400);
+      }
+    });
+    chatbotClose.addEventListener('click', () => {
+      if (animating) return;
+      animating = true;
+      chatbotModal.classList.remove('open');
+      chatbotModal.classList.add('closing');
+      contactBtn.classList.remove('open');
+      isOpen = false;
+      document.body.style.overflowX = '';
+      setTimeout(() => {
+        chatbotModal.classList.remove('closing');
+        chatbotModal.style.display = 'none';
+        animating = false;
+      }, 400);
+    });
+    // Handle input
+    inputForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const val = inputBox.value.trim();
+      if (!val) return;
+      handleUserInput(val);
+      inputBox.value = '';
+    });
+    inputBox.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        inputForm.dispatchEvent(new Event('submit'));
+      }
+    });
+    // Enhanced speech synthesis with retries
+    function speakBot(text, retry = 0) {
+      // Remove waving hand emoji and similar
+      const cleanText = text.replace(/\p{Emoji_Presentation}|\p{Extended_Pictographic}|[\u{1F44B}\u{1F44B}-\u{1F64F}]/gu, '').replace(/👋/g, '').trim();
+      if ('speechSynthesis' in window) {
+        const utter = new window.SpeechSynthesisUtterance(cleanText);
+        utter.rate = 1;
+        utter.pitch = 1;
+        utter.volume = 1;
+        utter.lang = 'en-US';
+        // Try to select a female voice
+        const voices = window.speechSynthesis.getVoices();
+        const female = voices.find(v => v.lang.startsWith('en') && (v.gender === 'female' || v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('woman') || v.name.toLowerCase().includes('zira')))
+          || voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('female'))
+          || voices.find(v => v.lang.startsWith('en') && v.gender === 'female')
+          || voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('woman'))
+          || voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('zira'))
+          || voices.find(v => v.lang.startsWith('en'));
+        if (female) utter.voice = female;
+        window.speechSynthesis.speak(utter);
+      }
+    }
+    function speakBotAsync(text) {
+      return new Promise(resolve => {
+        // Remove waving hand emoji and similar
+        const cleanText = text.replace(/\p{Emoji_Presentation}|\p{Extended_Pictographic}|[\u{1F44B}\u{1F44B}-\u{1F64F}]/gu, '').replace(/👋/g, '').trim();
+        if ('speechSynthesis' in window) {
+          const utter = new window.SpeechSynthesisUtterance(cleanText);
+          utter.rate = 1;
+          utter.pitch = 1;
+          utter.volume = 1;
+          utter.lang = 'en-US';
+          // Try to select a female voice
+          const voices = window.speechSynthesis.getVoices();
+          const female = voices.find(v => v.lang.startsWith('en') && (v.gender === 'female' || v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('woman') || v.name.toLowerCase().includes('zira')))
+            || voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('female'))
+            || voices.find(v => v.lang.startsWith('en') && v.gender === 'female')
+            || voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('woman'))
+            || voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('zira'))
+            || voices.find(v => v.lang.startsWith('en'));
+          if (female) utter.voice = female;
+          utter.onend = resolve;
+          window.speechSynthesis.speak(utter);
+        } else {
+          resolve();
+        }
+      });
+    }
+    // Function to send email using EmailJS (works with static websites)
+    async function sendEmail(data) {
+      const templateParams = {
+        to_email: "jejurkarabhishek98@gmail.com",
+        to_name: "Abhishek",
+        from_name: data.name,
+        from_mobile: data.mobile,
+        message: data.message,
+        timestamp: new Date().toLocaleString('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }),
+        source: 'Ask Riya Chatbot - Vision of Home'
+      };
+      
+      try {
+        const response = await emailjs.send(
+          'service_w1h91s9', // Replace with your EmailJS service ID (e.g., service_xxxxxxx)
+          'template_ht4zwdf', // Replace with your EmailJS template ID (e.g., template_xxxxxxx)
+          templateParams
+        );
+        
+        console.log('Email sent successfully:', response);
+        return { success: true, message: 'Email sent successfully' };
+      } catch (error) {
+        console.error('Email sending failed:', error);
+        throw error;
+      }
+    }
+    // Add a promise-based speech function
+    function speakBotAsync(text) {
+      return new Promise(resolve => {
+        if ('speechSynthesis' in window) {
+          const utter = new window.SpeechSynthesisUtterance(text);
+          utter.rate = 1;
+          utter.pitch = 1;
+          utter.volume = 1;
+          utter.lang = 'en-US';
+          utter.onend = resolve;
+          window.speechSynthesis.speak(utter);
+        } else {
+          resolve();
+        }
+      });
+    }
+  </script>
+  <script>
+    // --- Responsive DOM manipulation for mobile layout ---
+    function applyMobileLayoutFixes() {
+      if (window.innerWidth <= 700) {
+        // Move profile photo above intro text
+        var introSection = document.querySelector('.intro-section');
+        var introPhoto = document.querySelector('.intro-photo');
+        var introText = document.querySelector('.intro-text');
+        if (introSection && introPhoto && introText && introSection.firstElementChild !== introPhoto) {
+          introSection.insertBefore(introPhoto, introText);
+        }
+        // Move social icons to end of body (bottom)
+        var social = document.querySelector('.social-media-section');
+        if (social && social.parentNode !== document.body) {
+          document.body.appendChild(social);
+        } else if (social) {
+          document.body.appendChild(social);
+        }
+        // Move chatbot button into social-media-section
+        var chatbotBtn = document.querySelector('.floating-contact-btn');
+        if (chatbotBtn && social && chatbotBtn.parentNode !== social) {
+          social.appendChild(chatbotBtn);
+        }
+        // Ensure chatbot modal is above social icons
+        var chatbotModal = document.querySelector('.chatbot-contact-modal');
+        if (chatbotModal && social && chatbotModal.nextSibling !== social) {
+          document.body.insertBefore(chatbotModal, social);
+        }
+      } else {
+        // On desktop, move chatbotBtn back to body if needed
+        var chatbotBtn = document.querySelector('.floating-contact-btn');
+        if (chatbotBtn && chatbotBtn.parentNode && chatbotBtn.parentNode.classList && chatbotBtn.parentNode.classList.contains('social-media-section')) {
+          document.body.appendChild(chatbotBtn);
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', applyMobileLayoutFixes);
+    window.addEventListener('resize', applyMobileLayoutFixes);
+  </script>
+  <script>
+    // Add video switching and enable audio
+    const video1Btn = document.getElementById('video1-btn');
+    const video2Btn = document.getElementById('video2-btn');
+    const vid = document.getElementById('site-3d-video');
+    const videoSource1 = document.getElementById('video-source-1');
+    if (video1Btn && video2Btn && vid && videoSource1) {
+      video1Btn.onclick = function() {
+        videoSource1.src = 'images/video/shreevishwahtfinal.mp4';
+        vid.load();
+        vid.muted = false;
+        vid.play();
+        video1Btn.querySelector('img').style.borderColor = '#ffb400';
+        video2Btn.querySelector('img').style.borderColor = '#21e6c1';
+      };
+      video2Btn.onclick = function() {
+        videoSource1.src = 'images/video/NIGALsFINAL.mp4';
+        vid.load();
+        vid.muted = false;
+        vid.play();
+        video1Btn.querySelector('img').style.borderColor = '#21e6c1';
+        video2Btn.querySelector('img').style.borderColor = '#ffb400';
+      };
+      // Default: unmute video
+      vid.muted = false;
+    }
+  </script>
+  <script>
+    // Video slider logic with swipe support
+    let currentVideo = 1;
+    const totalVideos = 2;
+    function showVideo(n, autoplay = true) {
+      for (let i = 1; i <= totalVideos; i++) {
+        document.getElementById('video-slide-' + i).style.display = (i === n) ? 'block' : 'none';
+        const vid = document.getElementById('video-el-' + i);
+        if (vid) {
+          vid.pause();
+          vid.currentTime = 0;
+        }
+      }
+      currentVideo = n;
+      // Autoplay the current video
+      const currentVid = document.getElementById('video-el-' + n);
+      if (currentVid && autoplay) {
+        currentVid.play();
+      }
+    }
+    function prevVideo() {
+      let n = currentVideo - 1;
+      if (n < 1) n = totalVideos;
+      showVideo(n);
+    }
+    function nextVideo() {
+      let n = currentVideo + 1;
+      if (n > totalVideos) n = 1;
+      showVideo(n);
+    }
+    // Swipe support
+    const slider = document.getElementById('video-slider');
+    let startX = 0;
+    let endX = 0;
+    if (slider) {
+      slider.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+      });
+      slider.addEventListener('touchmove', function(e) {
+        endX = e.touches[0].clientX;
+      });
+      slider.addEventListener('touchend', function() {
+        if (startX && endX) {
+          if (startX - endX > 50) nextVideo();
+          else if (endX - startX > 50) prevVideo();
+        }
+        startX = 0; endX = 0;
+      });
+    }
+    // Autoplay when entering video section
+    const show3dBtn = document.getElementById('show-3d-video');
+    const videoOverlay = document.getElementById('video-overlay');
+    if (show3dBtn && videoOverlay) {
+      show3dBtn.addEventListener('click', function() {
+        setTimeout(() => showVideo(1, true), 500);
+      });
+    }
+    showVideo(currentVideo, true);
+  </script>
+  <script>
+    // Disable right-click context menu
+    window.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    // Attempt to obfuscate source code for basic protection
+    (function() {
+      function randomString(len) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let str = '';
+        for (let i = 0; i < len; i++) str += chars.charAt(Math.floor(Math.random() * chars.length));
+        return str;
+      }
+      // Detect if user tries to open dev tools or view source
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'U') || (e.key === 'F12')) {
+          document.body.innerHTML = '<div style="color:red;text-align:center;font-size:2em;margin:2em;">Code viewing is disabled.</div><pre style="user-select:all;">' + randomString(2000) + '</pre>';
+          e.preventDefault();
+          return false;
+        }
+      });
+      // Extra: Overwrite body if user tries to select all (Ctrl+A) + copy (Ctrl+C)
+      document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'A') {
+          setTimeout(function() {
+            document.body.innerHTML = '<div style="color:red;text-align:center;font-size:2em;margin:2em;">Code viewing is disabled.</div><pre style="user-select:all;">' + randomString(2000) + '</pre>';
+          }, 10);
+        }
+      });
+    })();
+  </script>
+</body>
+</html> 
